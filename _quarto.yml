@@ -1,0 +1,41 @@
+project:
+  type: book
+
+book:
+  title: "Social Cohesion and Resilience Between IDPs and Host Communities and Wellbeing in River Nile State 2024"
+  author:
+     - name: Elhami A.A. Ahmed. MBBS, MoSoc
+       orcid: 0000-0002-0386-0845
+       email: alturabi1990@gmail.com
+       affiliations:
+         - name: Internation University of Africa- Sudan
+         - name: Community Medicine Department, Faculty of Dentistry, Shendi University, Sudan
+       corresponding: true
+     - name: "Surpervisor: Dr. Murwan Osman, MBBS, MSc, MD"
+       affiliations:
+         - name: Internation University of Africa- Sudan
+  chapters:
+    - text: "Front matter"
+      file: index.qmd
+    - "01-introduction.qmd"
+    - "02-literature-review.qmd"
+    - "03-methods.qmd"
+    - "04-reproducibility.qmd"
+    - "05-results.qmd"
+    - "06-discussion.qmd"
+    - "07-conclusion.qmd"
+    - "appendices.qmd"
+    - "refs.qmd"
+  sidebar:
+    style: "docked"
+
+bibliography: references.bib
+csl: apa.csl
+degreetype: Master of Public Health "MPH"
+submitted: 2024
+affiliation: Faculty of Medicine
+degrees: 'MPH, International University of Africa (IUA)'
+
+format:
+  monashthesis-html: default
+  monashthesis-pdf: default
