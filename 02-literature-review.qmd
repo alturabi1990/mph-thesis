@@ -1,0 +1,67 @@
+---
+format: 
+  html:
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+  eval: true
+#  docx:
+#    toc: true
+#    number_sections: true
+#    highlight-style: github
+---
+
+# Literature Review & Previous Studies
+
+## **Definitions, Causes, and Consequences of Social Cohesion**
+
+**Definition of Social Cohesion** Social cohesion is a vital element of a peaceful and resilient society, especially in the context of increasing forced migration worldwide [@bulbulsiddiqi2022]. It is characterized by positive social relations, a sense of belonging, and an orientation towards the common good [@moustakas2023]. Despite its importance, the concept lacks a universally accepted definition, creating ambiguity among NGOs working in refugee contexts. Guay (2016) offers a relevant definition, describing social cohesion as “the set of relationships between individuals and groups in a particular environment and between those individuals and groups and the institutions that govern them” [@socialc2023].
+
+Social cohesion involves shared values, norms, and beliefs, fostering a sense of belonging and unity within a community. This interconnectedness strengthens interpersonal relationships and promotes a collective identity that transcends individual differences, paving the way for inclusive and harmonious coexistence among diverse groups. This sense of belonging and unity is essential for creating a supportive environment where individuals feel connected and valued, leading to increased overall well-being and resilience [@moustakas2023].
+
+**Causes of Social Cohesion** Several factors influence social cohesion in different societal contexts. Inequality, particularly income inequality, is a significant cause that negatively impacts social cohesion. Institutions and governance play a crucial role in fostering social cohesion by emphasizing well-being, social participation, tolerance, and equal opportunities. The human capital accumulation theory suggests that inequality hinders educational opportunities for disadvantaged individuals, affecting their social mobility and, consequently, social cohesion [@moustakas2023].
+
+## **Social Cohesion Dynamics in Refugee and Host Community Contexts**
+
+**Importance of Social Interaction** Social interaction between the host and Rohingya communities is critical in fostering a cohesive relationship. Increased positive interactions can help bridge divides and build understanding. Emphasizing the importance of social interaction is a key factor in fostering a cohesive relationship between the host and Rohingya communities, highlighting the need for initiatives that promote mutual respect and peaceful coexistence [@bulbulsiddiqi2022].
+
+**Social Cohesion and Resilience** Social cohesion and resilience are interconnected in a reciprocal relationship, as strong social cohesion can enhance a community's ability to withstand adversity and bounce back from setbacks, while resilience can strengthen bonds and reinforce a sense of collective identity. Communities with high levels of social cohesion and resilience are better equipped to address social issues, promote positive mental health outcomes, and facilitate effective collaboration towards common goals. Fostering social cohesion and resilience can also reduce instances of social isolation and loneliness, lower crime and violence rates, and increase civic engagement and participation in local decision-making processes [@moustakas2023].
+
+## **The components and dimensions of social cohesion & resilience can vary slightly in published literature:**
+
+**1. Trust:** Trust is an essential component of social cohesion. It refers to the belief and confidence that individuals and groups have in each other and in institutions [@delhey2018]. Trust is built through positive social interactions, shared values, and a sense of reliability and fairness, which can facilitate cooperation, mutual support, and collective action [@schiefer2017].
+
+Community members describe trust building as the most important precondition for the various components of society to be in solidarity and support each other. What trust building means varies from individual to individual and, to a certain extent, from area to area. Other necessary social cohesion actions are: promoting the spirit of tolerance, social interaction, making communities more homogeneous (ethno-religiously) and sensitizing community leaders [@socialc2023].
+
+**2. Inclusive identity and Belonging:** Inclusive identity refers to a sense of belonging and attachment to a social group or community. It involves recognizing and valuing diversity (cultural, ethnic, and religious) while fostering a shared sense of identity and common values [@delhey2018; @schiefer2017]
+
+**3. Social Integration and Inclusion:** Social cohesion is enhanced when IDPs are integrated into host communities, rather than being isolated or marginalized. This involves ensuring equal access to essential services, education, healthcare, employment opportunities, and participation in decision-making processes [@socialcohesion2018].
+
+**4. Cooperation for** **shared goals:** Cooperation for the common good refers to individuals and groups working together towards shared goals and collective well-being. It involves collaboration, solidarity, and a willingness to contribute to the betterment of society [@delhey2018].
+
+**5. Social relations:** Social relations encompass the quality and strength of interpersonal connections and networks within a community. This includes strong social networks, supportive relationships, and a sense of community belonging [@schiefer2017].
+
+**5. Participation:** Participation refers to the active engagement of individuals and groups in public life and decision-making processes. It involves having a voice, being included, and having opportunities to contribute to social, economic, and political activities.
+
+**6. Connectedness:** Connectedness refers to the level of interconnectedness and interdependence among individuals and groups within a society. It encompasses a sense of solidarity, shared values, and a recognition of the interrelationships between different social groups. This can be found in terms of joint community projects, income-generation activities, and initiatives that foster collaboration and interdependence [@schiefer2017].
+
+**7. Conflict Resolution and Reconciliation:** Addressing conflicts and promoting reconciliation is vital for social cohesion and resilience. This includes promoting dialogue, mediation, and peacebuilding initiatives to resolve tensions and heal divisions arising from displacement [@socialcohesion2018].
+
+**8. Resilience and Coping Mechanisms:** Promoting resilience involves strengthening the capacity of IDPs and host communities to withstand and recover from shocks or stresses. This includes supporting social support systems, providing psychosocial services, and fostering adaptive strategies for communities to cope with challenges [@macisaac2023].
+
+**9. Communication and Information Sharing:** Effective communication channels and information sharing platforms facilitate understanding and promote cohesion between IDPs and host communities. This includes ensuring transparent and inclusive communication to address grievances, disseminate relevant information, and promote dialogue [@jenson2010]
+
+These components and dimensions of social cohesion and resilience contribute to the overall strength and resilience of communities, fostering a sense of unity, cooperation, and well-being.
+
+**Building Social Cohesion and Resilience among IDPs and Host Communities** Social cohesion and resilience between internally displaced persons (IDPs) and host communities are crucial for sustainable integration and harmony. Fostering mutual understanding and cooperation through community engagement initiatives can bridge the gap between IDPs and host communities, promoting long-term stability and peaceful coexistence. Research indicates that social capital, including trust, interaction, and networks, plays a significant role in building resilience among displaced women by reducing poverty, increasing empowerment, and decreasing violence. Approaches to enhance social cohesion involve providing basic services without limiting the host community, economic integration, and support services for local integration. IDPs demonstrate resilience by establishing internal camp management structures, advocating for their needs, and fostering supportive communal relationships, showcasing their active role in adaptation and development [@bulbulsiddiqi2022].
+
+**Consequences of High Levels of Social Cohesion** High levels of social cohesion are linked to numerous positive outcomes, such as environmental sustainability, social stability, improved health, and effective responses to societal challenges like the COVID-19 pandemic. Social cohesion fosters a sense of community, cooperation, trust, and solidarity among society's members. Communities with high social cohesion levels are likely to experience lower conflict, crime rates, and social unrest, leading to overall well-being and resilience [@moustakas2023].
+
+**Challenges in Refugee Management: The Case of the Rohingya in Bangladesh** Research on social cohesion between the Rohingya and host communities in Bangladesh highlights several critical issues [@bulbulsiddiqi2022]. The lack of a comprehensive refugee policy and the ad-hoc approach taken by the Bangladeshi government have hindered efforts to prioritize social cohesion. Negative perceptions and social tensions have increased among neighboring host communities towards the Rohingya, fueled by concerns about anti-social and unlawful activities attributed to the influx of refugees. Over the past four years, there has been a significant decline in the sympathetic attitude of the host community towards the Rohingya, straining relationships and hindering efforts towards social cohesion [@bulbulsiddiqi2022].
+
+**Efforts to Address Social Cohesion Challenges** Efforts to address social cohesion challenges in the Rohingya crisis in Bangladesh have included initiatives focused on promoting inter-community dialogue, enhancing economic opportunities for both IDPs and host communities, and fostering mutual understanding through cultural exchange programs. These initiatives aim to bridge the gap between the displaced population and the host communities, creating a more inclusive and harmonious environment. Community-based projects, such as joint infrastructure development and shared resource management, have proven effective in fostering collaboration and building trust among the different groups affected by the crisis. These collaborative efforts have not only improved living conditions for both IDPs and host communities but also laid the foundation for long-term peacebuilding and social cohesion in the region [@bulbulsiddiqi2022].

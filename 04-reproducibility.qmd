@@ -1,0 +1,199 @@
+---
+title: "Reproducibility"
+format: 
+  html:
+    theme: cosmo
+    code-fold: show
+unnumbered: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+  message: false
+#  eval: false
+---
+
+# Reproducibility
+
+This section outlines the steps and resources needed to reproduce the analysis presented in this thesis. Ensuring reproducibility is critical for validating findings and building upon existing research.
+
+## Project Organization
+
+**The project is organized into the following directories:**
+
+-   **index.qmd**: The main Quarto file for the thesis.
+-   **chapters/**: Contains all chapter files, including this reproducibility section.
+-   **data/**: Directory for all datasets used in the analysis.
+-   **scripts/**: Directory for R scripts used in the analysis.
+-   **figures/**: Directory for all figures generated and used in the thesis.
+-   **styles/**: Directory for custom styling files, such as CSS.
+-   **bibliography/**: Directory for the bibliography file (`references.bib`).
+
+**Directory Structure:**
+
+```{mermaid}
+%%| fig-width: 5
+flowchart LR
+    A[my-mph-thesis] --> B[index.qmd]
+    A --> C[chapters/]
+    C --> C1[cover.qmd, dedication.qmd, acknowledgement.qmd,\n introduction.qmd, methods.qmd, reproducibility.qmd,\n results.qmd, discussion.qmd, conclusion.qmd]
+    A --> D[data/]
+    D --> D1[mydata.xlsx, cleaned_data.rds]
+    A --> E[scripts/]
+    E --> E1[analysis.R]
+    A --> F[figures/]
+    A --> G[styles/]
+    A --> H[references.bib]
+    G --> G1[custom-styles.css, custem-template.tex,\n custom-reference.docx]
+    A --> I[_quarto.yml]
+```
+
+```{mermaid}
+%%| fig-width: 5
+flowchart LR
+R[R Workflow] --> Rformat[Report formatting]
+Rformat --> Quarto[Quarto setup<br><br>Using metadata in<br>report output<br><br>Table and graph formatting]
+R --> DI[Data import] --> Annot[Annotate data<br><br>View data dictionary<br>to assist coding]
+R --> Do[Data overview] --> F[Observation filtration<br>Missing data patterns<br>Data about data]
+R --> P[Data processing] --> DP[Recode<br>Transform<br>Reshape<br>Merge<br>Aggregate<br>Manipulate]
+R --> Des[Descriptive statistics<br>Univariate or simple<br>stratification]
+R --> An[Analysis<br>Stay close to data] --> DA[Descriptive<br><br>Avoid tables by using<br>nonparametric smoothers] & FA[Formal]
+R --> CP[Caching<br>Parallel computing<br>Simulation]
+```
+
+## Data and Code Availability
+
+All data and code necessary to reproduce the analysis are provided within this repository:
+
+-   **Data**: The dataset used for analysis is located in the `data/` directory (`dataset.csv`).
+-   **Code**: The R script used for analysis is located in the `code/` directory (`analysis.R`).
+
+### Data
+
+The data used in this thesis can be found in the `data/` directory. If the data is sourced from an external location, include the download instructions or link.
+
+```{r eval= FALSE}
+# Example of loading the data
+ data <- read.csv("data/mydata.csv")
+```
+
+### Code
+
+The R code for the analysis is included in the `code/` directory. The script `analysis.R` performs data cleaning, analysis, and visualization.
+
+```{r eval= FALSE}
+# Example of running the analysis
+ source("scripts/analysis.R")
+```
+
+## Software and Libraries
+
+The analysis was conducted using R (version X.X.X) and the following libraries:
+
+-   **dplyr** (version X.X.X)
+
+-   **ggplot2** (version X.X.X)
+
+-   **\[Other Libraries\]**
+
+To install these packages, run:
+
+```{r eval= FALSE}
+ install.packages(c("dplyr", "ggplot2", "[Other Libraries]"))
+```
+
+## Steps to Reproduce
+
+Follow these steps to reproduce the analysis:
+
+1.  **Clone the Repository:**
+
+```{bash eval= FALSE}
+
+git clone <repository-url>
+
+cd my-mph-thesis
+
+```
+
+1.  **Install Required Libraries:**
+
+```{r eval= FALSE}
+ install.packages(c("dplyr", "ggplot2", "[Other Libraries]"))
+
+```
+
+3.  **Run the Analysis:**
+
+```{r eval= FALSE}
+source("code/analysis.R")
+
+```
+
+4.  **Render the Quarto Document:**
+
+```{bash eval= FALSE}
+ quarto render
+
+```
+
+## Version Control
+
+The project is managed using Git for version control. This allows tracking of changes and facilitates collaboration.
+
+### Initializing Git
+
+If you haven't already initialized a Git repository, you can do so with the following commands:
+
+```{bash eval= FALSE}
+# Initialize a git repository
+ git init
+
+# Add all files to the repository
+ git add .
+
+# Commit the changes
+ git commit -m "Initial commit"
+
+# Add a remote repository
+ git remote add origin <repository-url>
+
+# Push the changes
+ git push -u origin master
+
+```
+
+### Committing Changes
+
+As you make changes to your project, commit these changes regularly:
+
+```{bash eval= FALSE}
+# Add changes to the staging area
+git add .
+
+# Commit the changes
+git commit -m "Description of the changes made"
+
+```
+
+### Pushing Changes
+
+After committing your changes, push them to your remote repository:
+
+```{bash eval= FALSE}
+
+git push origin master
+
+```
+
+## Session Information
+
+```{r sessioninfo, eval = TRUE, include = TRUE}
+
+
+ sessioninfo::session_info()
+```
+
+## Additional Information
+
+For more detailed instructions on specific parts of the analysis or troubleshooting common issues, please refer to the `README.md` file in the root of the repository.

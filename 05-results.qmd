@@ -1,0 +1,1121 @@
+---
+format:
+  html:
+    self-contained: true 
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+  eval: true
+#  docx:
+#    toc: true
+#    number_sections: true
+#    highlight-style: github
+
+bibliography: references.bib
+
+#output-dir: docs
+---
+
+# Results
+
+```{r load-import,eval=TRUE}
+# Load necessary libraries
+library(here) # For creating relative file paths
+library(dplyr) # For data manipulation
+library(Hmisc) # For data manipulation and labeling
+library(gt) # For creating 'gt' tables
+library(gtsummary) # For generating summary tables
+library(gtExtras)
+#library(webshot2) # For saving 'gt' tables as images
+#library(websocket) # For handling web socket communication
+
+
+
+
+# Loading RDS or RData
+cleaned_data <- readRDS(here("data/cleaned_data.rds")) 
+#cleaned_data$displacement_times <- as.numeric(cleaned_data$displacement_times)
+  
+
+
+```
+
+## General Descriptive Statistics
+
+### Normality Checking for Numerical Variables
+
+```{r, eval=TRUE}
+#| label: tbl-normality-testing
+#| tbl-cap: Shapiro-Wilk Tests for Numerical Variables
+#| tbl-colwidths: [80,50]
+
+# Normality Testing for numerical variables
+
+# Extract the numerical variables
+numerical_data <- sapply(cleaned_data, is.numeric) # Identify numerical columns
+numerical_data <- cleaned_data[, numerical_data] # Select only numerical columns
+
+# Perform Shapiro-Wilk test for normality
+normality_tests <- lapply(numerical_data, shapiro.test) # Apply Shapiro-Wilk test to each variable
+numvars <- names(numerical_data) # Get variable names
+p_values <- sapply(normality_tests, function(x) x$p.value) # Extract p-values from test results
+
+# Define significance level (adjust as needed)
+alpha <- 0.05
+
+# Create conclusions based on p-values
+conclusions <- sapply(p_values, function(x) if (x > alpha) "Normal" else "Not-normal") # Determine normality based on p-values
+
+# Create labels for the  data
+labels <- sapply(cleaned_data, label) # Extract labels from cleaned data
+
+ # Ensure labels is a named list with variable names as names
+  #labels <- setNames(as.list(labels), label)
+
+
+# Create data frame with results
+normality_data <- data.frame(variable = labels[numvars], p_value = p_values, conclusion = conclusions) # Combine results into a data frame
+
+
+# Convert the data frame to a gt table
+gt_table <- normality_data %>%
+  mutate(
+     p_value = as.numeric(p_value), # Ensure p_value is numeric
+     p_value = style_pvalue(p_value)
+  ) %>%
+  gt() %>%
+  tab_header(
+    title = md("**Normality Testing**")
+  ) %>%
+  cols_label(
+    variable = "Variable",
+    p_value = "P_value",
+    conclusion = "Conclusion"
+  ) %>%
+  fmt_number(
+    columns = c(variable, p_value, conclusion),
+    decimals = 3,
+  ) %>%
+  tab_options(
+    table.width = pct(80)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_title(groups = "title")
+#    cell_text(align = "center")
+  )
+
+# Display the gt table
+gt_table %>%
+  gt_theme_guardian()
+```
+
+We have included in our study a total of `r nrow(cleaned_data)` participants , including `r sum(cleaned_data$participant_status == "IDP")` (61%) IDPs and `r sum(cleaned_data$participant_status == "Host community member")` (39%) host community members. Taken from 6 localities, as Eldamer had the highest overall representation (30%), followed by Atbara (27%) and Shendi (17%). Then least localities with AbuHamad, Elmatama, and Barbar by (13%, 11%, & 2%) respectively.
+
+After doing the normality testings using `Shapiro-Wilk tests` on our numerical variables. As shown in the @tbl-normality-testing, all of our variables are not normality distributed. So, we reported the univariate analysis results as `median (Mdn)and interquartile range (IQR)` and in bivariate hypothesis testing using appropriate tests`(Pearson’s Chi-squared test, Wilcoxon rank sum test and Fisher’s exact test)`.
+
+### Sociodemographic Characteristics
+
+The @tbl-descriptive-demo & @tbl-descriptive-ses below provide a breakdown of the socio-demographic characteristics for each group. The study population had a median age of 31 years (IQR: 25-43), with a gender distribution of 64% female and 36% males. Marital status varied, with 49% married, 44% signle and 3.4% divorced or widowed. The study reveals significant socio-economic differences between IDPs and host community members. Educational levels significantly differed, with more IDPs having university (48% vs. 40%) and post-graduate education (25% vs. 11%) (p \< .001). Occupation post-conflict showed a significant shift, with professional employment decreasing among IDPs (from 44% to 19%) and unemployment rising (42% vs. 34%) (p \< .001). IDPs more frequently lived in host communities (42%) and rented accommodations (22%) than host community members, who predominantly owned homes (82%) (p \< .001). Housing conditions also varied significantly, with fewer IDPs reporting good conditions (28% vs. 48%) (p \< .001). Median monthly income before the conflict was higher for IDPs (Mdn = 200) than for host community members (Mdn = 120) (p \< .001), but post-conflict income levels showed no significant difference (p = .4). Income satisfaction was low overall, with no significant group difference (p = .062) as shown in @fig-income-plot & @tbl-descriptive-ses .
+
+When looking at displacement pattern through @fig-sankey `The Sankey diagram` to illustrates the movement of displaced persons from various states due to conflict, providing a visual representation of the origins and destinations of these individuals. The nodes on the left side of the diagram represent the states of origin, while the ones on the right side denote the localities where displaced persons have relocated. The analysis reveals that **Khartoum (215/240)** is the highest state of origin, contributing the largest number of displaced persons. Following Khartoum, **Aj Jazerah** and **River Nile** are the next significant states of origin. In contrast, **Sennar**, **Red Sea**, and **White Nile** have contributed the least number of displaced persons.
+
+```{r descriptive-demo-1, eval=TRUE}
+# Function to create a summary table
+create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
+  # Generate dynamic caption
+  caption <- paste0("**Descriptive Statistics of ", caption_prefix, " Information Stratified by ", labels[by_var], "**")
+  summary_table <- data %>%
+    select(all_of(vars), all_of(by_var)) %>% # Select specified variables and grouping variable
+    tbl_summary(
+      by = !!sym(by_var), # Stratify by the specified variable
+      digits = list(
+        all_continuous() ~ 0 # Round continuous variables to 0 decimal places
+      ),
+      label = labels, # Use labels for variable names
+      missing = "no" # Do not show missing values separately
+    ) %>%
+    add_n() %>%
+    add_overall() %>% # Add overall statistics
+    modify_header(label ~ "**Variable**") %>% # Modify the header for variable names
+    bold_labels() %>%
+    modify_caption(caption) # Add caption to the table
+    
+  # Convert gtsummary table to gt table
+  gt_table <- as_gt(summary_table)%>%
+    cols_width(
+      everything() ~ px(150)  # Adjust column width as needed
+    )
+
+  # Return the gt table
+  return(gt_table)
+}
+
+# Convert specified columns to numeric
+cleaned_data <- cleaned_data %>%
+  mutate(across(all_of(numvars), as.numeric))
+```
+
+```{r, eval=TRUE}
+#| label: tbl-descriptive-demo
+#| tbl-cap: Descriptive Statistics of Participants' Demographic Characteristics
+
+# Select different sets of variables for different tables
+demographics_vars <- c(
+  "gender", "age", "marital_status",
+  "locality", "participant_status"
+)
+
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", demographics_vars, labels, "Demographic")
+
+# Render the table in the Quarto document
+gt_table 
+```
+
+```{r, eval=TRUE}
+# Custom Chi-Squared Test Function for categorical
+# Chi-squared test with conditional simulation
+custom_chisq_test <- function(data, variable, by, ...) {
+  tbl <- table(data[[by]], data[[variable]]) # Create contingency table
+  chisq_result <- chisq.test(tbl) # Perform chi-squared test
+
+  # If expected counts are less than 5, use simulation
+  if (any(chisq_result$expected < 5)) {
+    chisq_result <- chisq.test(tbl, simulate.p.value = TRUE, B = 10000) # Perform chi-squared test with simulation
+  }
+
+  return(chisq_result$p.value) # Return p-value
+}
+
+
+###############################################################
+# Function to create a summary table
+create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
+  # Generate dynamic caption
+  caption <- paste0("**Descriptive Statistics of ", caption_prefix, " Information Stratified by ", labels[by_var], "**")
+  summary_table <- data %>%
+    select(all_of(vars), all_of(by_var)) %>% # Select specified variables and grouping variable
+    tbl_summary(
+      by = !!sym(by_var), # Stratify by the specified variable
+      digits = list(
+        all_continuous() ~ 0 # Round continuous variables to 0 decimal places
+      ),
+      label = labels, # Use labels for variable names
+      missing = "no" # Do not show missing values separately
+    ) %>%
+    add_n() %>%
+    add_overall() %>% # Add overall statistics
+    add_p(test = all_categorical() ~ custom_chisq_test) %>% # Add p-values for categorical comparisons
+    bold_p(t = 0.05) %>%
+    modify_header(label ~ "**Variable**") %>% # Modify the header for variable names
+    bold_labels() %>%
+    modify_footnote(
+      p.value ~ "Pearson’s Chi-squared test (simulation if expected counts < 5); 
+      Wilcoxon rank sum test; Fisher’s exact test"
+    ) %>%
+    modify_caption(caption) # Add caption to the table
+    
+  # Convert gtsummary table to gt table
+  gt_table <- as_gt(summary_table)
+
+  # Return the gt table
+  return(gt_table)
+}
+
+```
+
+::: {#fig-sankey .figure}
+<iframe src="figures/sankey_plot_with_caption.html" width="100%" height="500px">
+
+</iframe>
+
+Sankey plot showing the displacement patterns of IDPs to the State
+:::
+
+```{r, eval=TRUE}
+#| label: fig-income-plot
+#| fig-cap: Income Distribution Before and After Conflict \n Among IDPs & Host Community
+
+
+# Load necessary libraries
+library(ggplot2)
+library(tidyr)
+
+# Select and melt the data for easy plotting
+data_long <- cleaned_data %>%
+  select(income_before_conflict, income_after_conflict, participant_status) %>%
+  pivot_longer(cols = c(income_before_conflict, income_after_conflict), 
+               names_to = "Income_Type", 
+               values_to = "Income") %>%
+  mutate(Income_Type = recode(Income_Type, 
+                              "income_before_conflict" = "Income Before Conflict", 
+                              "income_after_conflict" = "Income After Conflict"),
+         Income_Type = factor(Income_Type, levels = c("Income Before Conflict",
+                                                      "Income After Conflict")))
+
+#p_value1 <- 0.12
+#p_value2 <- 0.001
+
+# Create the violin plot
+violin_plot <- ggplot(data_long, 
+                      aes(x = participant_status, y = Income, 
+                          fill = Income_Type)) +
+  geom_violin(trim = FALSE) +
+  stat_summary(fun = "median", 
+               geom = "point", 
+               size = 2, 
+               color = "yellow", 
+               position = position_dodge(width = 0.9)) +
+  facet_wrap(~ Income_Type 
+           #  scales = "free_y", 
+           #  nrow = 2#, 
+            # ncol = 2
+             ) +
+  
+  theme_grey() +
+  labs(#title = "Income Distribution Before and After Conflict \n Among IDPs & Host Community",
+       x = "Participant Status",
+       y = "Income (1000SDG)",
+       fill = "Income Type") +
+  scale_fill_brewer(palette = "Set1") +
+  guides(fill = "none") + # Remove the legend for fill (group)
+ # geom_text(data = data.frame(x = c(1.5, 3.5), y = c(1150, 1150),
+#                              label = c(paste("p =", round(p_value1, 3)),
+#                                        paste("p =", round(p_value2, 3)))),
+ #           aes(x = x, y = y, label = label),
+  #          size = 4, hjust = c(0, 1)) +  # Adjust hjust for alignment
+  theme(axis.text.x = element_text(angle = 30, hjust = 1)#,
+       # plot.title = element_text(hjust = 0.5)
+        )
+
+# Print the plot
+print(violin_plot)
+
+```
+
+```{r, eval=TRUE}
+#| label: tbl-descriptive-ses
+#| tbl-cap: Descriptive Statistics of Participants' Socioeconomic Characteristics
+
+socio_economic_vars <- c(
+  "education", "occupation_before_conflict",
+  "occupation_after_conflict", "shelter_type", 
+  "housing_conditions","income_before_conflict", 
+  "income_after_conflict","income_satisfaction",
+  "participant_status"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", socio_economic_vars, labels, "Socio-economic")
+
+
+gt_table
+```
+
+## *Social Cohesion among IDPs and Host Communities*
+
+### Social Integration and Participation of IDP Communities Towards Host Communities
+
+The survey assessed the social integration and participation of internally displaced persons (IDPs) within the host community, focusing on friendships, feelings of acceptance, social activity engagement, experiences of kindness, comfort in seeking help, and overall social integration as shown in @tbl-descriptive-social-integration
+
+**Friendships**: Among the 260 IDPs surveyed, 47% reported having a few friends, 40% had many friends, and 13% had no friends within the host community.
+
+**Acceptance**: Of 256 respondents, 59% always felt welcomed, 34% sometimes felt welcomed, and 7% never felt welcomed by the host community.
+
+**Social Activity Engagement**: Engagement was high, with 47% of 252 respondents always participating, 37% sometimes participating, and 16% never participating in social activities.
+
+**Experiences of Kindness**: Among the 258 respondents, 53% sometimes experienced kindness, 28% always experienced it, and 18% never did.
+
+**Comfort in Seeking Help**: Comfort levels varied, with 45% of 254 respondents sometimes comfortable, 26% always comfortable, and 29% never comfortable seeking help from the host community.
+
+**Overall Social Integration**: None of the 259 respondents had low integration scores; 69% had average scores, while 31% had high scores
+
+### Shared Values & Goals Between IDPs & Host Community
+
+@tbl-shared-values-desc describes the *levels of shared values and goals between host community members and internally displaced persons (*IDPs*), highlighting* cultural Alignment, Mutual Respect, Collaboration, and Shared Responsibility
+
+**Shared Cultural Values**: Of 406 respondents, 12% reported never sharing cultural values, 52% sometimes shared values, and 36% always did. There was no significant difference between host community members and IDPs *(p = .4).*
+
+**Mutual Respect for Customs and Traditions**: Among 401 respondents, 5% never experienced mutual respect, 35% sometimes experienced it, and 60% always did. The patterns were similar for both groups *(p = .3).*
+
+**Collaboration to Solve Community Issues**: From 396 responses, 20% never collaborated, 39% sometimes collaborated, and 41% always collaborated. The response distribution was consistent between the two groups *(p = .5).*
+
+**Feeling of Shared Responsibility for Community Improvement**: Out of 403 respondents, 19% never felt shared responsibility, 30% sometimes felt it, and 50% always felt it. There was a trend towards more host community members (55%) always feeling shared responsibility compared to IDPs (48%), but this was not statistically significant *(p = .060).*
+
+**Overall Shared Values Score**: The shared values score, categorized into low, average, or high, showed 22% of respondents with low scores, 64% with average scores, and 14% with high scores. The distribution was similar between host community members and IDPs *(p \> .9).*
+
+```{r, eval=TRUE}
+#| label: tbl-descriptive-social-integration
+#| tbl-cap: Social Integration & Participation of IDPs Towards Host Community
+
+# Define variables grouped by category
+social_integration_vars <- c(
+  "host_community_friends", "feel_welcomed", 
+  "social_activities","experienced_kindness", 
+  "comfortable_seeking_help", "social_integration_category"
+)
+
+gt_table <- cleaned_data %>%
+    select(all_of(social_integration_vars)) %>% # Select specified variables and grouping variable
+    tbl_summary(
+      digits = list(
+        all_continuous() ~ 0 # Round continuous variables to 0 decimal places
+      ),
+      label = labels, # Use labels for variable names
+      missing = "no" # Do not show missing values separately
+    ) %>%
+  add_n()%>%
+  modify_header(label ~ "**Variable**") %>% # Modify the header for variable names
+    bold_labels() %>%
+    modify_caption("**Social Integration & Participation of IDPs Towards Host Community**") # Add caption to the table
+
+
+
+gt_table
+
+```
+
+```{r, eval=TRUE}
+#| label: tbl-shared-values-desc
+#| tbl-cap: Shared Values & Goals Information Stratified by Displacement status
+
+
+shared_values_vars <- c(
+  "shared_cultural_values", "mutual_respect", "work_together",
+  "shared_responsibility", "shared_values_category"
+  )
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, 
+                                 "participant_status", 
+                                 shared_values_vars, 
+                                 labels, 
+                                 "Shared Values & Goals"
+                                 )
+
+gt_table %>%
+  gt_theme_538()  # Example of applying a theme from gtExtra
+
+
+```
+
+### Levels of Perceived Equity and Justice in IDPs and Host Communities
+
+The levels of perceived equity and justice of internally displaced persons (IDPs) and host community members, this was assessed in terms of their access to services, participation in decision-making, experiences of discrimination, and support from organizations, for more details see @tbl-social-support-desc.
+
+**Equal Access to Basic Services** Among the 410 respondents, 93% agreed or strongly agreed that there should be equal access to basic services. Responses were similar between host community members and IDPs (p = .5).
+
+**Inclusiveness in Decision-Making Processes** There was a significant difference (p = .008) regarding inclusiveness in community decision-making. A higher proportion of IDPs (59%) agreed that decision-making processes were inclusive compared to host community members (43%). Conversely, 26% of host community members disagreed, compared to 15% of IDPs.
+
+**Prevalence of Discrimination Based on Status** Perceived discrimination based on displacement status differed significantly (p \< .001). While 44% of participants disagreed or strongly disagreed with experiencing discrimination, IDPs were more likely to disagree (41%) compared to host community members (31%).
+
+**Equitable Support from Humanitarian Organizations and Government Policies** Responses were similar between the groups regarding equitable support (p = .6). A total of 62% disagreed or strongly disagreed that support should be equitable, with 64% of IDPs and 60% of host community members holding this view.
+
+**Equal Employment and Economic Opportunities** Perceptions of equal employment and economic opportunities did not differ significantly (p = .4). Overall, 65% agreed or strongly agreed that opportunities should be equal, with 66% of IDPs and 67% of host community members expressing this view.
+
+**Equal Rights and Legal Protections** Both groups showed similar perceptions of equal rights and legal protections (p = .2). Most participants agreed or strongly agreed (96%), with slightly higher agreement among host community members (98%) compared to IDPs (94%).
+
+**Overall Perceived Equality and Justice Score** The scores were categorized into low, average, or high. Of the 410 respondents, 62% had an average score, 24% had a high score, and 14% had a low score. The distribution was similar between host community members and IDPs, with no significant difference (p = .2).
+
+### Levels of Perceived of Social Cohesion of IDPs and Host Communities
+
+When querying about the perceived (subjective) levels of social cohesion among host community members and internally displaced persons (IDPs), focusing on current cohesion levels and perceived changes over time as presented in @tbl-perception-cohesion in more details.
+
+**Perceived Level of Social Cohesion**: Among the 410 respondents, 12% reported low social cohesion, 60% reported acceptable cohesion, and 28% reported high cohesion. The distribution of responses was similar between host community members and IDPs, with no significant difference (p = .6). Specifically, 11% of host community members and 12% of IDPs reported low cohesion, while 59% of host community members and 62% of IDPs reported acceptable cohesion. High cohesion was reported by 31% of host community members and 26% of IDPs.
+
+**Improvement in Social Cohesion Over Time**: Out of 410 respondents, 15% felt that social cohesion was regressing, 30% saw no difference or were unsure, and 55% believed it was improving. Host community members were more optimistic, with 62% reporting improvement compared to 52% of IDPs. Conversely, 13% of host community members and 17% of IDPs felt cohesion was regressing. These differences, however, were not statistically significant (p = .12).
+
+```{r, eval=TRUE}
+#| label: tbl-social-support-desc
+#| tbl-cap: Perceived Equity and Justice Information Stratified by Displacement status
+
+social_support_vars <- c(
+  "equal_access_services", "inclusive_decision_making", 
+  "no_discrimination","equitable_support", "equal_employment",
+  "equal_rights", "equity_justice_category"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", social_support_vars, labels, "Perceived Equity and Justice")
+
+gt_table %>%
+  gt_theme_538()  # Example of applying a theme from gtExtra
+```
+
+```{r, eval=TRUE}
+#| label: tbl-perception-cohesion
+#| tbl-cap: Perceived Level of Cohesion Stratified by Displacement status
+
+perception_cohesion_vars <- c(
+  "social_cohesion", "cohesion_improvement"
+  )
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", perception_cohesion_vars, labels, "Perceived Level of Cohesion")
+
+gt_table 
+
+```
+
+## Levels of Resilience Among IDPs Compared to Host Communities
+
+In @tbl-resilience, the levels of resilience among host community members and internally displaced persons (IDPs), focusing on psychological well-being (psychological Resilience), social support (Social Resilience), economic resources (Economic Resilience), preparedness for environmental challenges (Environmental Resilience), and overall resilience scores.
+
+**Psychological Resilience** by asking the degree of **psychological well-being and coping mechanisms**: Among 410 respondents, 26% reported low psychological well-being, 57% reported moderate levels, and 17% reported high levels. IDPs tended to report lower psychological well-being compared to host community members (p \< .001), with 29% of IDPs reporting low levels versus 20% of host community members.
+
+**Social Resilience through availability and effectiveness of social support networks**: Responses indicated that 48% perceived social support networks as poor, 40% as acceptable, and 12% as good, with no significant difference between IDPs and host community members (p = .7).
+
+**Economic resilience** asking about the **current economic resources and livelihood opportunities**: Participants reported weak economic resources (50%), moderate resources (42%), and strong resources (8%). There was no significant difference between IDPs and host community members (p = .4).
+
+**Environmental Resilience in terms of preparedness and adaptation to environmental challenges**: showed 33% poorly prepared, 48% moderately prepared, and 19% well-prepared for environmental challenges. IDPs were less likely to feel well-prepared compared to host community members (p \< .001).
+
+**Overall Resilience Score**: The score categorized into low, average, or high showed that 22% had a low score, 62% had an average score, and 16% had a high score. IDPs were more likely to have a low resilience score compared to host community members (p \< .001).
+
+```{r, eval=TRUE}
+#| label: tbl-resilience
+#| tbl-cap: Perceived Level of Resilience Stratified by Displacement status
+
+
+resilience_vars <- c(
+  "psychological_resilience", "social_resilience",
+  "economic_resilience", "environmental_resilience",
+  "overall_resilience_category"
+  )
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", resilience_vars, labels, "Resilience")
+
+gt_table
+```
+
+## Accessibility to Different Basic Resources
+
+The results presented in @tbl-access-assoc highlights the accessiblity to basic resources for both IDPs and host communities showing that
+
+1.  **Healthcare Services Accessibility:**
+
+    -   Overall, 18% of respondents found healthcare services easily accessible, 51% moderately accessible, and 32% difficult to access.
+
+    -   Host community members (25%) were significantly more likely than IDPs (13%) to perceive healthcare services as easily accessible (p = 0.006).
+
+2.  **Education Opportunities Accessibility:**
+
+    -   Responses indicated that 29% have easy access to education opportunities, 44% moderately accessible, and 27% difficult to access.
+
+    -   Host community members (43%) were notably more likely than IDPs (21%) to access education opportunities more easily (p \< 0.001).
+
+3.  **Infrastructure Accessibility (Roads, Electricity, Water Supply):**
+
+    -   The accessibility of infrastructure showed 13% found it easily accessible, 49% moderately accessible, and 38% difficult to access.
+
+    -   There were no significant differences between host community members and IDPs regarding infrastructure accessibility (p = 0.14).
+
+```{r, access, eval=TRUE}
+#| label: tbl-access-assoc
+#| tbl-cap: Accessibility Factors to Basic Resources Between IDPs & Host Community
+
+
+access_vars <- c(
+  "healthcare_accessibility", "education_accessibility",
+  "infrastructure_accessibility", "participant_status"
+  )
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", access_vars, labels, "Accessibility")
+
+
+gt_table
+```
+
+## Influence of Authorities and Organizations
+
+Here are the descriptive statistics of roles in support the communities by different parties, stratified by displacement status in @tbl-roles-desc
+
+**Role of Government Institutions and Authorities:**
+
+-   Overall, most respondents indicated "No role" (80%), followed by "Supportive" (15%) and "Opposing" (4.1%).
+
+-   Among host community members and IDPs, there were similar proportions across these roles with no significant differences observed (p = 0.2).
+
+**Role of Religious Leaders:**
+
+-   A significant majority reported support from religious leaders (60%), with fewer indicating "No role" (40%) and none opposing.
+
+-   Similar proportions were observed among host community members (63% support) and IDPs (59% support), with no significant differences (p \> 0.05).
+
+**Role of Tribal Sheiks:**
+
+-   Responses were divided fairly evenly between "Supportive" (47%) and "No role" (51%), with a small percentage (1.6%) opposing.
+
+-   Host community members and IDPs showed similar distributions across these roles, with no significant differences (p \> 0.9).
+
+**Support from NGOs:**
+
+-   The majority reported "No role" from NGOs (72%), while 27% indicated support, and a very small percentage opposed (0.5%).
+
+-   Distribution among host community members (71% no role) and IDPs (73% no role) did not differ significantly (p = 0.8).
+
+**Role of Youth Engagement:**
+
+-   Most respondents were supportive of youth engagement (61%), followed by "No role" (37%) and a small percentage (2.0%) opposing.
+
+-   Host community members (67% supportive) and IDPs (57% supportive) differed slightly, approaching significance (p = 0.062).
+
+**Community Involvement (People Themselves):**
+
+-   A significant majority reported community involvement (70% supportive), with fewer indicating "No role" (26%) and a small percentage (4.4%) opposing.
+
+-   Distribution among host community members (74% supportive) and IDPs (67% supportive) did not show significant differences (p = 0.3).
+
+    ```{r, role, eval=TRUE}
+    #| label: tbl-roles-desc
+    #| tbl-cap: Descriptive Statistics of Roles in Support Information Stratified by Displacement status 
+
+
+    roles_vars <- c(
+      "govt_institutions", "religious_leaders",
+      "tribal_leaders","ngo_support",
+      "youth_engagement", "community_involvement",
+      "participant_status"
+      )
+
+    # Call the function and store the table
+    gt_table <- create_summary_table(cleaned_data, "participant_status", roles_vars, labels, "Roles in Support")
+
+
+    gt_table
+    ```
+
+## Associations Between Variables & Social Cohesion and Resilience
+
+```{r, eval=TRUE}
+# Function to create a summary table
+create_summary_table1 <- function(data, by_var, vars, labels, caption_prefix) {
+  # Generate dynamic caption
+  caption <- paste0("**Associations Between Different ", caption_prefix, " with ", labels[by_var], "**")
+  summary_table <- data %>%
+    select(all_of(vars), all_of(by_var)) %>% # Select specified variables and grouping variable
+    tbl_summary(
+      by = !!sym(by_var), # Stratify by the specified variable
+      digits = list(
+        all_continuous() ~ 0 # Round continuous variables to 0 decimal places
+      ),
+      label = labels, # Use labels for variable names
+      missing = "no" # Do not show missing values separately
+    ) %>%
+    add_n() %>%
+    add_p(test = all_categorical() ~ custom_chisq_test) %>% # Add p-values for categorical comparisons
+    bold_p(t = 0.05) %>%
+    modify_header(label ~ "**Variable**") %>% # Modify the header for variable names
+    bold_labels() %>%
+    modify_footnote(
+      p.value ~ "Pearson’s Chi-squared test (simulation if expected counts < 5); 
+      Wilcoxon rank sum test; Fisher’s exact test"
+    ) %>%
+    modify_caption(caption) # Add caption to the table
+    
+  # Convert gtsummary table to gt table
+  gt_table <- as_gt(summary_table)
+
+  # Return the gt table
+  return(gt_table)
+}
+
+```
+
+### Associations Between Various Variables and Levels of Perceived Social Cohesion
+
+When testing the associations between various variables and the perceived level of cohesion using bivariate analyses as presented in @tbl-social-cohesion-assoc, we found the following:
+
+**Significant Associations:**
+
+1.  **Age**: There is a significant association between age and perceived level of social cohesion (p \< .001). Younger individuals tend to report lower cohesion, with median ages of 29 for low cohesion, 30 for acceptable cohesion, and 37 for high cohesion.
+
+2.  **Marital Status**: shows a significant association (p = .007) with social cohesion. Single individuals are more likely to report lower cohesion (56%) compared to married individuals (33%) and divorced individuals (6.3%).
+
+3.  **Participant's Locality**: The locality of participants significantly influences social cohesion (p \< .001). For example, participants from Atbara report higher acceptable cohesion (50%) compared to those from AbuHamad (2.1%).
+
+4.  **Education Level**: it shows a significant association (p = .049) with social cohesion. Illiterate individuals report lower cohesion (2.1%) compared to university-educated individuals (44%).
+
+5.  **Occupation After the Armed Conflict**: There is a significant association (p = .023) between occupation after the armed conflict and social cohesion. Laborers report lower cohesion (19%) compared to professional employees (33%).
+
+6.  **Type of Shelter**: Type of shelter significantly influences social cohesion (p \< .001). Individuals in rented accommodations report lower cohesion (23%) compared to those in owned homes (33%).
+
+7.  **Duration of Residence in Host Community**: Duration of residence shows a significant association (p \< .001) with social cohesion. Longer durations are associated with higher levels of cohesion (median of 12 months for high cohesion).
+
+8.  **Prevalence of Discrimination Based on IDP or Host Community Status**: There is a significant association (p \< .001) between perceived discrimination and social cohesion. Those who strongly agree with discrimination tend to report lower cohesion (8.3%) compared to those who strongly disagree (31%).
+
+9.  **Healthcare Services:** There is a strong link between healthcare accessibility and social cohesion (p \< 0.001). Those who find healthcare easily accessible tend to report higher cohesion (21%) compared to those with low (10%) and acceptable (17%) cohesion. On the other hand, individuals who find healthcare difficult to access are more likely to report low (42%) and high (46%) cohesion compared to acceptable (23%).
+
+10. **Education Opportunities:** Education accessibility also shows a significant association with social cohesion (p = 0.005). Respondents who perceive education as easily accessible report higher cohesion (34%) compared to those with low (19%) and acceptable (29%) cohesion. Conversely, those who find education difficult to access are more likely to report high (36%) and low (29%) cohesion compared to acceptable (23%).
+
+**Non-Significant Associations:**
+
+-   **Demographic Factors**: Gender does not show a significant association with social cohesion (p = .4).
+
+-   **Displacement and Economic Factors**: Displacement status, average monthly income before and after conflict, number of times displaced, and previous displacement or residence in another host community do not significantly associate with social cohesion (all p \> 0.05).
+
+-   **Infrastructure:** The accessibility of infrastructure, such as roads, electricity, and water supply, does not significantly affect perceived social cohesion (p = 0.5). The responses are fairly consistent across different cohesion levels, with most people finding infrastructure moderately accessible.
+
+#### Associations Roles of Governments & other bodies in Relation to Percieved Social Cohesion
+
+The @tbl-roles-assoc presents the associations between the cohesion and degree of interventions of different parties to improved it, we found:
+
+1.  **Role of Government Institutions and Authorities:**
+
+    -   The perception of the role of government institutions is significantly associated with the level of social cohesion among respondents (p = 0.008). Specifically:
+
+    -   Respondents who perceive government institutions as supportive are more likely to report low (19%) and acceptable (17%) cohesion compared to high cohesion (11%).
+
+2.  **Role of Religious Leaders:**
+
+    -   Among those reporting low social cohesion, 44% perceived no role from religious leaders, compared to 38% in the acceptable cohesion group and 41% in the high cohesion group.
+
+    -   Supportive roles from religious leaders showed a significant association (p = 0.017) with higher social cohesion levels.
+
+3.  **Role of Tribal Sheiks:**
+
+    -   For those with low social cohesion, 60% reported no role from tribal sheiks, compared to 44% in the acceptable cohesion group and 65% in the high cohesion group.
+
+    -   Supportive roles from tribal sheiks were significantly associated (p = 0.017) with higher social cohesion.
+
+4.  **Support from NGOs:**
+
+    -   No significant associations were found between support from NGOs and social cohesion levels (p = 0.2).
+
+5.  **Role of Youth Engagement:**
+
+    -   Opposition to youth engagement was higher among those with low social cohesion (8.3%) compared to 1.6% in the acceptable cohesion group and none in the high cohesion group.
+
+    -   Supportive roles from youth engagement were strongly associated (p \< 0.001) with higher social cohesion levels.
+
+6.  **Community Involvement (People Themselves):**
+
+    -   Those reporting low social cohesion had the highest proportion (21%) indicating opposition to community involvement, compared to 3.2% in the acceptable cohesion group and none in the high cohesion group.
+
+    -   Strong support for community involvement showed a significant association (p \< 0.001) with higher social cohesion.
+
+```{r, eval=TRUE}
+#| label: tbl-social-cohesion-assoc
+#| tbl-cap: Factors Associated with Perceived Level of Social Cohesion
+
+
+factor_vars <- c(
+  demographics_vars, "state_origin", socio_economic_vars,
+  "displacement_times", "previous_displacement",
+  "residence_duration", "no_discrimination",
+  "healthcare_accessibility", "education_accessibility",
+  "infrastructure_accessibility"
+  )
+
+ 
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "social_cohesion", factor_vars, labels, "Factors")
+
+
+gt_table %>%
+  gt_theme_538()
+
+```
+
+------------------------------------------------------------------------
+
+```{r role-cohesion, eval=TRUE}
+#| label: tbl-roles-assoc
+#| tbl-cap: Associations Between Roles of Differents Bodies with Perceived Levels of social cohesion
+
+roles_vars <- c(
+"govt_institutions", "religious_leaders",
+  "tribal_leaders","ngo_support",
+  "youth_engagement", "community_involvement"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "social_cohesion", roles_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+### Associations Between Various Variables and Social Integration & Participation
+
+We tested the association between the different factors with social integration as presented in @tbl-social-integ-assoc
+
+**Significant Associations:**
+
+1.  **Age**: shows a significant association (p \< .001) with social integration score. Older individuals tend to have higher integration scores, with a median age of 38 for high integration compared to 29 for average integration.
+
+2.  **Marital Status**: demonstrates a significant association (p \< .001) with social integration score. Married individuals are more likely to have high integration scores (57%) compared to single individuals (37%).
+
+3.  **Participant's Locality**: shows a significant association (p \< .001) with social integration score. For example, Eldamer residents are more likely to have high integration scores (41%) compared to Atbara residents (9.9%).
+
+4.  **Education Level**: exhibits a significant association (p \< .001) with social integration score. Post-graduate individuals have higher integration scores (33%) compared to those with primary education (9.9%).
+
+5.  **Occupation After the Armed Conflict**: shows a significant association (p = .023) with social integration score. Laborers have lower integration scores (30%) compared to professional employees (17%).
+
+6.  **Type of Shelter**: it is significantly associated with social integration score (p \< .001). Individuals in rented accommodations have lower integration scores (6.2%) compared to those in owned homes (43%).
+
+7.  **Duration of Residence in Host Community**: exhibits a significant association (p \< .001) with social integration score. Longer durations are associated with higher integration scores, with a median of 12 months for high integration.
+
+**Non-Significant Associations:**
+
+-   **Demographic Factors**: Gender does not show a significant association with social integration score (p = .4).
+
+-   **Economic Factors**: Average monthly income before and after conflict, income satisfaction for family needs do not significantly associate with social integration score (all p \> 0.05).
+
+-   **Displacement and Other Factors**: Number of times displaced, previous displacement or residence in another host community do not significantly associate with social integration score (all p \> 0.05).
+
+```{r, eval=TRUE}
+#| label: tbl-social-integ-assoc
+#| tbl-cap: Associations Between the Levels of Social Integration and Various Variables 
+
+# To omit "previous_displacement"
+factor_vars <- factor_vars[factor_vars != "participant_status"]
+
+# Remove rows where the grouping variable has zero observations
+  data <- cleaned_data %>%
+    group_by("social_integration_category") %>%
+    filter(n() > 0) %>%
+    ungroup()
+# Drop unused levels
+  data <- data %>%
+    mutate(across(all_of("social_integration_category"), ~ factor(.)))
+  
+# Call the function and store the table
+gt_table <- create_summary_table1(data, "social_integration_category", factor_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+### Associations Between Various Variables and Shared Values and Goals
+
+The results presented in @tbl-shared-values-assoc highlights the relationships between level of shared values and other factors
+
+**Significant Associations :**
+
+1.  **Gender**: Gender shows a significant association (p = 0.039) with shared values score. Males are more likely to have high shared values scores (51%) compared to females (49%).
+
+2.  **Age**: Age demonstrates a significant association (p \< 0.001) with shared values score. Older individuals tend to have higher shared values scores, with a median age of 37 for high shared values compared to 27 for low shared values.
+
+3.  **Marital Status**: Marital status exhibits a significant association (p = 0.013) with shared values score. Married individuals are more likely to have high shared values scores (67%) compared to single individuals (30%).
+
+4.  **Participant's Locality**: Locality shows a significant association (p \< 0.001) with shared values score. Eldamer residents are more likely to have high shared values scores (58%) compared to Atbara residents as (39%) reported low shared values and goals among all localities.
+
+5.  **Education Level**: Education level shows a significant association (p = 0.027) with shared values score. Post-graduate individuals have higher shared values scores (35%) compared to those with primary education (11%).
+
+6.  **Occupation After the Armed Conflict**: Occupation after conflict demonstrates a significant association (p = 0.019) with shared values score. Laborers have lower shared values scores (37%) compared to professional employees (18%).
+
+7.  **Previous Displacement or Residence in Another Host Community**: There is a significant association (p \< 0.001) between previous displacement or residence in another host community and shared values score. Those who have not experienced displacement are more likely to have high shared values scores (8.3%) compared to those who have (51%).
+
+8.  **Duration of Residence in Host Community**: Duration of residence shows a significant association (p \< 0.001) with shared values score. Longer durations are associated with higher shared values scores, with a median of 12 months for high shared values.
+
+9.  **Prevalence of Discrimination Based on IDP or Host Community Status**: Discrimination prevalence demonstrates a significant association (p = 0.002) with shared values score. Agreeing with discrimination based on IDP or host community status is associated with higher shared values scores (60%) compared to disagreeing (28%).
+
+**Non-Significant Associations:**
+
+-   **Displacement Status**: Displacement status does not show a significant association with shared values score (p \> 0.9).
+
+-   **Type of Shelter**: Type of shelter does not show a significant association with shared values score (p = 0.070).
+
+-   **Economic Factors**: Average monthly income before and after conflict, income satisfaction for family needs do not significantly associate with shared values score (all p \> 0.05).
+
+-   **Number of Times Displaced**: Number of times displaced does not show a significant association with shared values score (p = 0.6).
+
+```{r, eval=TRUE}
+#| label: tbl-shared-values-assoc
+#| tbl-cap: Associations Between the Levels of Shared Values & Goals and Various Variables 
+
+factor_vars <- c(
+  demographics_vars, "state_origin", socio_economic_vars,
+  "displacement_times", "previous_displacement",
+  "residence_duration", "no_discrimination",
+  "healthcare_accessibility", "education_accessibility",
+  "infrastructure_accessibility"
+  )
+
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "shared_values_category", factor_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+### Associations between Different Factors and Levels of Social Support
+
+The results presented in @tbl-social-support-assoc highlights the relationships between level of Social Support and other factors
+
+**Significant Associations:**
+
+1.  **Age**: Age shows a significant association (p = 0.048) with social support score. Younger individuals tend to have higher social support scores (median 28) compared to older individuals (median 32).
+
+2.  **Participant's Locality**: Locality demonstrates a significant association (p \< 0.001) with social support score. Individuals from Atbara are more likely to have high social support scores (42%) compared to those from AbuHamad (4.1%).
+
+3.  **Occupation After the Armed Conflict**: Occupation after conflict shows a significant association (p \< 0.001) with social support score. Professional employees are more likely to have high social support scores (38%) compared to laborers (17%).
+
+4.  **Type of Shelter**: Type of shelter exhibits a significant association (p \< 0.001) with social support score. Individuals living in owned accommodations are more likely to have high social support scores (42%) compared to those in schools and other public buildings (13%)
+
+5.  **Previous Displacement or Residence in Another Host Community**: There is a significant association (p = 0.022) between previous displacement or residence in another host community and social support score. Individuals who have not experienced previous displacement are more likely to have high social support scores (46%) compared to those who have (29%).
+
+6.  **Duration of Residence in the Host Community**: Duration of residence shows a significant association (p = 0.022) with social support score. Longer durations of residence are associated with lower social support scores, with a median of 7 months for high social support compared to 12 months for low social support.
+
+7.  **Prevalence of Discrimination Based on IDP or Host Community Status**: Discrimination prevalence demonstrates a significant association (p \< 0.001) with social support score. Agreeing or strongly agreeing with discrimination based on IDP or host community status is associated with lower social support scores (29% and 20%, respectively) compared to disagreeing (32%) or strongly disagreeing (21%).
+
+**Non-Significant Associations:**
+
+-   **Gender**: Gender does not show a significant association with social support score (p = 0.3).
+
+-   **Marital Status**: Marital status does not show a significant association with social support score (p = 0.7).
+
+-   **Displacement Status**: Displacement status does not show a significant association with social support score (p = 0.2).
+
+-   **Education Level**: Education level does not show a significant association with social support score (p = 0.8).
+
+-   **Occupation Before the Armed Conflict**: Occupation before conflict does not show a significant association with social support score (p = 0.062).
+
+-   **Average Monthly Income Before and After Conflict**: Income-related factors (average monthly income before and after conflict, income satisfaction for family needs) do not show significant associations with social support score (all p \> 0.05).
+
+-   **Number of Times Displaced**: Number of times displaced does not show a significant association with social support score (p = 0.2).
+
+```{r,eval=TRUE}
+#| label: tbl-social-support-assoc
+#| tbl-cap: Associations Between the Levels of Social Support and Various Variables 
+
+
+factor_vars <- c(
+  demographics_vars, socio_economic_vars,
+  "displacement_times", "previous_displacement",
+  "residence_duration", "no_discrimination",
+    "healthcare_accessibility", "education_accessibility",
+  "infrastructure_accessibility"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "equity_justice_category", factor_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+### Associations between Different Factors and Levels of Resilience
+
+The associations between various factors and overall resilience scores in @tbl-resilience-assoc are summarized as follows:
+
+**Gender**: Gender was not significantly associated with resilience levels (p = 0.3). Among those with low resilience, 60% were female and 40% were male. In the average resilience group, 64% were female and 36% were male, and for high resilience, 72% were female and 28% were male.
+
+**Age**: Age showed a significant association with resilience levels (p = 0.029). The median age was 36 years (IQR = 27, 46) for low resilience, 29 years (IQR = 25, 40) for average resilience, and 35 years (IQR = 26, 45) for high resilience.
+
+**Marital Status:** No significant association with resilience (p = 0.3).
+
+**Participant's Locality:** Locality was significantly associated with resilience levels (p \< 0.001). Individuals from Eldamer had the highest representation in the low resilience group (47%) and the average resilience group (24%), whereas those from Shendi had the highest representation in the high resilience group (26%).
+
+**Displacement Status:** There was a significant association between displacement status and resilience levels (p \< 0.001). A majority of individuals with low resilience were IDPs (74%), while a higher proportion of host community members exhibited high resilience (57%).
+
+**Education Level:** No significant association with resilience (p = 0.6).
+
+**Occupation Before the Armed Conflict:** No significant association with resilience (p = 0.7).
+
+**Occupation After the Armed Conflict:** significantly affected resilience levels (p = 0.008). Those with high resilience were more likely to be unemployed (46%) compared to those with low resilience (39%). Additionally, a smaller percentage of laborers exhibited high resilience (20%) compared to those with low resilience (36%).
+
+**Type of Shelter:** Type of shelter significantly influenced resilience levels (p = 0.001). Individuals owning homes were more prevalent in the high resilience group (58%) compared to those with low resilience (29%). Conversely, those residing in public buildings were more common in the low resilience group (10%) than in the high resilience group (4.6%).
+
+**Housing Conditions**: Housing conditions were significantly associated with resilience levels (p \< 0.001). Distribution in the low resilience group was 29% with good conditions, 44% acceptable, and 27% bad. For average resilience, it was 33% good, 57% acceptable, and 9.4% bad. In the high resilience group, it was 51% good, 42% acceptable, and 7.7% bad.
+
+**Average Monthly Income Before and after the Conflict**: they were not significantly associated with resilience levels (p = 0.074, p = 0.076 respectively).
+
+**Income Satisfaction for Family Needs**: was significantly associated with resilience levels (p \< 0.001). In the low resilience group, 5.6% were satisfied, compared to 15% in the average resilience group and 34% in the high resilience group.
+
+**Number of Times Displaced**: Number of times displaced was not significantly associated with resilience levels (p \> 0.9).
+
+**Previous Displacement**: Previous displacement was not significantly associated with resilience levels (p = 0.2).
+
+**Duration of Residence in the Host Community**: Duration of residence was not significantly associated with resilience levels (p = 0.7).
+
+**Prevalence of Discrimination Based on Displacement**: Prevalence of discrimination was not significantly associated with resilience levels (p = 0.065).
+
+**Availability and Accessibility of basic Services:**
+
+Overall, availability and accessibility attributes were significantly associated with resilience levels. Healthcare accessibility was notably linked to higher resilience scores, *p\<.001*; 37% of respondents with high resilience found healthcare easily accessible, compared to 15% with average resilience and 10% with low resilience. Conversely, 17% of those with high resilience reported difficult access to healthcare, versus 33% with average resilience and 38% with low resilience. Similarly, education accessibility was positively correlated with resilience, *p = .003*; 48% of high resilience respondents reported easy access to education, compared to 27% with average resilience and 21% with low resilience. Difficult access to education was reported by only 14% of high resilience individuals, compared to 28% with average resilience and 34% with low resilience. Infrastructure accessibility also significantly impacted resilience, *p \<.001*; 28% of those with high resilience found infrastructure easily accessible, compared to 12% with average resilience and 5.6% with low resilience. Difficulties in accessing infrastructure were reported by 18% of high resilience respondents, compared to 38% with average resilience and 49% with low resilience.
+
+#### Roles of Governments & other bodies in Relation with Resilience
+
+The @tbl-roles-resilience-assoc presents the associations between the degree of overall resilience and degree of interventions of different parties to improved it, we found:
+
+1.  **Role of Government Institutions and Authorities:** There was a significant association (p = 0.032) between supportive roles from government institutions and higher resilience scores. Those who reported high resilience scores were more likely to perceive supportive roles from government institutions (23%), compared to 16% in the average group and 6.7% in the low resilience group.
+
+2.  **Role of Religious Leaders:** Supportive roles from religious leaders were significantly associated (p \< 0.001) with higher resilience scores. Participants with high resilience scores showed a higher proportion (78%) perceiving supportive roles from religious leaders, compared to 55% in the average group and none in the low resilience group.
+
+3.  **Role of Tribal Sheiks:** There was a significant association (p = 0.049) between supportive roles from tribal sheiks and higher resilience scores. Supportive roles from tribal sheiks were more prevalent among those with high resilience scores (68%), compared to 43% in the average group and none in the low resilience group.
+
+4.  **Support from NGOs:** Although not statistically significant (p = 0.069), supportive roles from NGOs were more commonly perceived among those with high resilience scores (35%), compared to 29% in the average group and 0.8% in the low resilience group.
+
+5.  **Role of Youth Engagement:** There was no significant association (p = 0.2) between roles of youth engagement and resilience scores. However, supportive roles were slightly higher among those with high resilience scores (69%).
+
+6.  **Community Involvement (People Themselves):** High levels of community involvement were strongly associated (p \< 0.001) with higher resilience scores, with 91% of those reporting high resilience scores indicating supportive community involvement. This was compared to 64% in the average group and 6.7% in the low resilience group.
+
+    ```{r, eval=TRUE}
+    #| label: tbl-resilience-assoc
+    #| tbl-cap: Associations Between the Levels of Resilience and Various Variables 
+
+    factor_vars <- c(
+      demographics_vars, socio_economic_vars,
+      "displacement_times", "previous_displacement",
+      "residence_duration", "no_discrimination",
+        "healthcare_accessibility", "education_accessibility",
+      "infrastructure_accessibility"
+      )
+
+
+    # Call the function and store the table
+    gt_table <- create_summary_table1(cleaned_data, "overall_resilience_category", factor_vars, labels, "Factors")
+
+    gt_table %>%
+      gt_theme_538()
+
+    ```
+
+------------------------------------------------------------------------
+
+```{r role-resilience, eval=TRUE}
+#| label: tbl-roles-resilience-assoc
+#| tbl-cap: Associations Between Roles of Differents Bodies with Perceived Levels of Overall Resilience
+
+roles_vars <- c(
+"govt_institutions", "religious_leaders",
+  "tribal_leaders","ngo_support",
+  "youth_engagement", "community_involvement"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "overall_resilience_category", roles_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+## Well-Being Status of the Participants
+
+The descriptive statistics of dimensions of health information stratified by displacement status in @tbl-wellbeing-desc:
+
+**Health Status over the Last 6 Months:** Overall, respondents reported their health status as "Fairly good" (43%) most frequently, followed by "Good" (36%) and "Bad" (21%). There were slight differences between host community members (Bad: 17%, Fairly good: 45%, Good: 38%) and IDPs (Bad: 24%, Fairly good: 42%, Good: 34%), with no significant overall difference (p = 0.3).
+
+**Physical Health Status:** Responses were distributed fairly evenly across the scale from 1 (poor) to 5 (excellent), with no significant differences between host community members and IDPs (p = 0.4).
+
+**Relationships with Family, Including Spouse/Partner:** A significant majority reported positive relationships (score of 5), but there were notable differences. Host community members (67%) tended to rate their relationships higher than IDPs (45%) (p \< 0.001).
+
+**Relationships with Friends:** Similar to family relationships, a majority reported positive friendships (score of 5), with host community members (43%) more likely than IDPs (22%) to rate relationships at this level (p \< 0.001).
+
+**Worry about Global Events:** Respondents expressed varying levels of worry, with a majority leaning towards higher levels of concern (score of 5). IDPs (42%) were slightly more likely than host community members (38%) to express higher worry levels, but the difference was not significant (p = 0.038).
+
+**Optimism about the Next 12 Months:** Overall, optimism varied, with a majority indicating moderate to high levels of optimism (scores of 4 and 5). Host community members (58%) tended to be more optimistic compared to IDPs (42%) (p = 0.027).
+
+```{r health, eval=TRUE}
+#| label: tbl-wellbeing-desc
+#| tbl-cap: Descriptive Statistics of Dimensions of Health Information Stratified by Displacement status 
+health_vars <- c(
+  "health_last_6_months", "physical_health",
+  "relationships_family","relationships_friends",
+  "global_worry", "future_optimism",
+  "participant_status"
+  )
+
+# Call the function and store the table
+gt_table <- create_summary_table(cleaned_data, "participant_status", health_vars, labels, "Dimensions of Health")
+
+
+gt_table
+```
+
+### Associations Between Wellbeing Attributes with Perceived Levels of social cohesion
+
+The associations between various wellbeing attributes and perceived levels of social cohesion are summarized in @tbl-health-cohesion & @tbl-health-cohesion-resilience. Below are the detailed findings for each attribute:
+
+**Health Status (last 6 months):** There was no significant association between health status and perceived levels of social cohesion (p = 0.3).
+
+**Physical Health Status:** There was no significant association found (p = 0.10).
+
+**Relationships with Family:** This attribute also showed no significant association (p = 0.12).
+
+**Relationships with Friends:** This attribute showed a significant association with social cohesion (p = 0.002). In the low cohesion group, 13% rated their relationships with friends as 1 (worst), 19% as 2, 29% as 3, 17% as 4, and 23% as 5 (best). For acceptable cohesion, the ratings were 7.7%, 19%, 29%, 15%, and 30%. In the high cohesion group, the ratings were 4.4%, 9.6%, 22%, 33%, and 31%.
+
+**Worry about Global Events:** There was no significant association (p = 0.079).
+
+**Optimism about the Next 12 Months:** This attribute was significantly associated with social cohesion (p = 0.047). In the low cohesion group, 27% rated their optimism as 1 (least optimistic), 19% as 2, 17% as 3, 6.3% as 4, and 31% as 5 (most optimistic). For acceptable cohesion, the ratings were 17%, 21%, 21%, 15%, and 26%. In the high cohesion group, the ratings were 15%, 13%, 15%, 17%, and 40%.
+
+```{r health-cohesion, eval=TRUE}
+#| label: tbl-health-cohesion
+#| tbl-cap: Associations Between Wellbeing Attributes with Perceived Levels of social cohesion
+
+health_vars <- c(
+  "health_last_6_months", "physical_health",
+  "relationships_family","relationships_friends",
+  "global_worry", "future_optimism"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "social_cohesion", health_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```
+
+| Attribute                         | Social Cohesion (p-value) | Resilience (p-value) |
+|------------------------------|:---------------------:|:-----------------:|
+| Health Status                     |            0.3            |     **\< 0.001**     |
+| Physical Health Status            |           0.10            |     **\< 0.001**     |
+| Relationships with Family         |           0.12            |      **0.004**       |
+| Relationships with Friends        |         **0.002**         |     **\< 0.001**     |
+| Worry about Global Events         |         **0.079**         |     **\< 0.001**     |
+| Optimism about the Next 12 Months |         **0.047**         |     **\< 0.001**     |
+
+: **P_values for Associations Between Well-Being Attributes and Perceived Levels of Social Cohesion and Resilience** {#\| tbl-health-cohesion-resilience}
+
+### Associations Between Wellbeing Attributes with Levels of Resilience
+
+The associations between various wellbeing attributes and levels of resilience are summarized in @tbl-health-resilience the detailed findings for each attribute:
+
+**Health Status (last 6 months):** There was a significant association between health status and levels of resilience (p \< 0.001). Among respondents with low resilience, 37% reported having bad health, 41% fairly good health, and 22% good health. Those with average resilience had 19% reporting bad health, 42% fairly good health, and 40% good health. For high resilience, 11% reported bad health, 51% fairly good health, and 38% good health.
+
+**Physical Health Status:** This attribute also showed a significant association with resilience levels (p \< 0.001). For low resilience, 18% rated their physical health as 1 (worst), 19% as 2, 31% as 3, 22% as 4, and 10% as 5 (best). In the average resilience group, the ratings were 3.9%, 10%, 42%, 27%, and 17%. For high resilience, the ratings were 0%, 6.2%, 37%, 38%, and 18%.
+
+**Relationships with Family:** Significant associations were found between family relationships and resilience levels (p = 0.004). In the low resilience group, 5.6% rated their family relationships as 1 (worst), 7.8% as 2, 14% as 3, 32% as 4, and 40% as 5 (best). For average resilience, the ratings were 2.0%, 4.7%, 18%, 22%, and 54%. In the high resilience group, the ratings were 0%, 0%, 7.7%, 23%, and 69%.
+
+**Relationships with Friends:** This attribute showed a significant association with resilience levels (p \< 0.001). For low resilience, 10% rated their relationships with friends as 1 (worst), 36% as 2, 23% as 3, 14% as 4, and 17% as 5 (best). In the average resilience group, the ratings were 7.8%, 11%, 29%, 21%, and 31%. In the high resilience group, the ratings were 1.5%, 9.2%, 23%, 23%, and 43%.
+
+**Worry about Global Events:** There was a significant association between worry about global events and resilience levels (p \< 0.001). For low resilience, 8.9% rated their worry about global events as 1 (least worried), 1.1% as 2, 22% as 3, 16% as 4, and 52% as 5 (most worried). In the average resilience group, the ratings were 10%, 3.9%, 28%, 20%, and 38%. For high resilience, the ratings were 7.7%, 17%, 32%, 17%, and 26%.
+
+**Optimism about the Next 12 Months:** This attribute was significantly associated with resilience levels (p \< 0.001). In the low resilience group, 37% rated their optimism as 1 (least optimistic), 24% as 2, 7.8% as 3, 11% as 4, and 20% as 5 (most optimistic). For average resilience, the ratings were 13%, 20%, 21%, 15%, and 31%. In the high resilience group, the ratings were 6.2%, 7.7%, 25%, 18%, and 43%.
+
+```{r health-resilience, eval=TRUE}
+#| label: tbl-health-resilience
+#| tbl-cap: Associations Between Wellbeing Attributes with Levels of Resilience
+
+health_vars <- c(
+  "health_last_6_months", "physical_health",
+  "relationships_family","relationships_friends",
+  "global_worry", "future_optimism"
+  )
+
+
+# Call the function and store the table
+gt_table <- create_summary_table1(cleaned_data, "overall_resilience_category", health_vars, labels, "Factors")
+
+gt_table %>%
+  gt_theme_538()
+```

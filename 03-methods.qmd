@@ -1,0 +1,200 @@
+---
+format:
+  html:
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+  eval: true
+#  docx:
+#    toc: true
+#    number_sections: true
+#    highlight-style: github
+---
+
+# Materials & Methods
+
+## Study Design
+
+Analytical cross-sectional community-based study
+
+## Study area
+
+This study included River Nile state that is 2nd most affected state by the displacement with (10%) of the total IDPs according to displacement tracking matrix (DTM) Sudan in their Sudan situation report 28 published in 28th of April 2024 **(Ref)**.
+
+We targeted different types of shelters as well as households to reach for IDPs and members of host communities.
+
+## Study populations
+
+The study included both adults above or equal 18 yearsd from IDPs & host communities as follows:
+
+-   IDPs communities from different shelter types (mainly, camps(-like) settings, in host community & in rented accommodations)
+
+-   Host communities: they were selected from the members surrounding the IDP communities
+
+### Inclusion criteria
+
+-   All adult IDPs who have been displaced due to the armed clashes in 15th of April 2023
+-   All adults who host IDPs in their homes or staying near IDPs due to the armed clashes in 15th of April 2023
+
+### Exclusion criteria
+
+-   All IDPs who have been displaced before the armed clashes in 15th of April 2023
+
+-   All IDPs who have houses in the host community and they regularly visit their home place.
+
+-   All potential participants who refuse to participate in the study
+
+-   Host community members who are far away from displacement
+
+## Sampling
+
+### Sample size
+
+The sample size was determined based on statistical power calculations to ensure adequate representation and generalizability of findings. we used the Cochran equation to calculate the sample for our study.
+
+$n = Z^2*P*q / e^2$
+
+considering `95%` confidence level (`Z = 1.96`)
+
+`P` = the estimated proportion for the social cohesion & resilience (unknown so our p = 0.5)
+
+`q = 1 - p = 1 - 0.5 = 0.5`
+
+e = desired precision level (`0.05`)
+
+$n = 1.96^2*0.5*0.5 / 0.05^2$ = `385`
+
+Considering *non-response rate of 5%* the total will be `(385 + 19 = 404)`
+
+We divided the sample size between the IDPs & host community members.
+
+### Sampling Technique
+
+   **We adopted a multistage cluster sampling technique to select participants from both the IDP and host communities.**
+
+1.  Firstly, for the state, we have 6 selected localities to represent different characteristics (distance from origin, clashes, & center of the state) 
+
+2.  At the locality level, we conveniently selected the major city (urban, Atbara) and at least one village (rural).
+
+3.  Thirdly, participants were selected from different settings to guarantee taking diverse areas (households, health facilities, market, housing centres)
+
+## Study variables
+
+***The study had measured various variables related to:***
+
+**Social cohesion in IDPs communities’ variables**
+
+-   Social integration & participation, social support, shared values and goals
+
+**Social cohesion within host communities**
+
+-   Intergroup contact, social inclusion, cultural integration
+
+**level of resilience among IDPs in comparison to host communities:**
+
+-   Psychological resilience, social resilience, economic resilience
+
+**factors influencing (contribute to or hinder) social cohesion and resilience among**
+
+-   Demographic variables: Age, gender, education level, marital status, Length of displacement for IDPs, etc.
+
+-   Socio-economic variables: Income, employment status, housing conditions, etc.
+
+-   Cultural differences
+
+-   Marginalization and exclusion of certain IDP groups
+
+**Examine the impact of social cohesion on the well-being and integration of IDPs:**
+
+-   Physical, social, mental and emotional well-being of IDPs & host members
+
+-   Access to resources and basic services: such as healthcare, education, and infrastructure for both groups.
+
+**Assess the role of community support systems in facilitating social cohesion:**
+
+-   Availability and effectiveness of government initiatives for IDPs
+
+-   Role of NGOs and community organizations in promoting integration
+
+## Data Collection
+
+Data had been collected using self-structured questionnaire for measuring social cohesion and resilience as well as their consequences @sec-annex3. 
+
+The questionnaire had consisted of numerical, multiple-choice and Likert scale questions, allowing for quantitative analysis.
+
+The questionnaire had been administered face-to-face by trained research assistants who were familiar with the local context and sensitive to cultural nuances using **`Kobocollect`**`mobile app`.
+
+## Data Management
+
+Collected data was securely stored and accessible only to authorized researchers. Data entry was double-checked for accuracy, and any identifying information was removed or anonymized during analysis and reporting.
+
+## Data Analysis
+
+```{mermaid}
+%%| fig-width: 6
+flowchart LR
+imp[Import]
+rec[Recode]
+annot[Annotate]
+anal[Analysis]
+uni[Univariate<br>Descriptive<br>Analysis]
+ds[Data<br>Snapshot]
+biv[Descriptive<br>Association<br>Analysis]
+imp --> rec --> annot --> ds --> anal
+anal --> uni & biv
+```
+
+All statistical analyses were conducted using R, a language and environment for statistical computing and graphics . R provides a wide array of statistical and graphical techniques and is highly extensible. The analyses included data cleaning, descriptive statistics, inferential statistics, and data visualization.
+
+First, in order to do a proper presentation of the variables, we have conducted a normality testing using `Shapiro-Wilk tests` on our numerical variables. So accordingly, we have reported the quantitative data obtained from the questionnaires was analyzed using appropriate statistical techniques.
+
+Descriptive statistics summarizes the demographic characteristics of participants and other variables, while inferential statistics explores relationships between variables and identify factors influencing social cohesion and resilience.
+
+We used the statistical language R and RStudio for all our analyses [@rlang].
+
+These were implemented in dynamic rmarkdown documents using knitr ([Xie 2023](#ref-knitr)) and rmarkdown ([Allaire et al. 2023](#ref-rmarkdown)) packages.
+
+## Writing and Documentation
+
+This thesis was written and documented using Quarto, an open-source scientific and technical publishing system. Quarto enables the integration of R code with narrative text, allowing for reproducible research and dynamic report generation.
+
+## Ethical Considerations
+
+Ethical approval was obtained from both the International University of Africa and REC of State Ministry of Health (SMoH)- River State before data collection began @sec-annex1.
+
+Permissions from related gatekeepers (the household members, any community bodies if necessary as well as the official persons in case of IDP community settings) were obtained @sec-annex2
+
+Informed consent was obtained from all participants prior to their involvement in the study. This research adhered to ethical guidelines regarding confidentiality, privacy protection, and anonymity of participants’ responses by assigning unique identification codes to each questionnaire @sec-annex3 .
+
+## Timeline
+
+Outline a tentative timeline for the various stages of your research, including data collection, analysis, and report writing. This timeline should cover the duration of your project.
+
+```{mermaid}
+%%| label: fig-mermaid-gantt
+%%| fig-cap: Gantt's Chart for the Project Timeline
+%%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%
+
+gantt
+    title Research Project Timeline
+    dateFormat YYYY-MM
+    axisFormat %d-%b-%Y
+    
+    section Preparation phase
+    Research protocol: a1, 2024-05-01, 14d
+    ethical approval/Gatekeepers' permissions : crit, a2, after a1, 14d
+    Data Collectors Training: after a2, 3d
+    
+    section Implementation phase
+    Data collection : 2024-05-29, 7d
+    Data entry & analysis: crit, 2024-06-15, 7d
+    
+    section Dissimination phase
+     Writing the report: crit, 2024-07-01, 14d
+     Thesis Defence: 2024-07-15, 14d
+```

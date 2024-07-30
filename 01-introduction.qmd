@@ -1,0 +1,85 @@
+---
+format: 
+  html:
+    toc: true
+    toc-location: left
+    number-sections: true
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+  eval: true
+#bibliography: ./references.bib
+bibliographystyle: vancouver.csl
+link-bibliography: true
+link-citations: true
+#  docx:
+#    toc: true
+#    number_sections: true
+#    highlight-style: github
+---
+
+# Introduction
+
+## Background
+
+Migration and displacement rates have reached unprecedented levels globally in recent years due to conflicts, natural disasters, and other humanitarian crises. Approximately one in seven people living outside their country of origin, totaling over 258 million individuals. Out of these, 89.3 million people have been forcibly displaced, including 27.1 million refugees, 4.6 million asylum seekers, and 53.2 million internally displaced persons (IDPs). It is worth noting that a significant proportion of these displaced individuals are women and children. [@howilo2022]
+
+The consequences of forced displacement’s length and intensity often extend beyond individual circumstances. IDPs often face numerous challenges in terms of social integration, access to basic services, employment opportunities, and psychological well-being. These difficulties can lead to social disruption, tensions, grievances, social fragmentation, and economic upheaval between IDPs among themselves and between host communities. This will often lead to challenges to the social cohesion of IDPs & host communities.[@howilo2022]
+
+The Organization for Economic Co-operation and Development (OECD) defines a cohesive society as “one that works towards the well-being of all members, minimizing disparities, and avoiding marginalization” [@oecd2011]. A concept called the Humanitarian, Development, and Peace Nexus (HDPN) which emphasizes the importance of social cohesion between displaced populations and host communities for peace, stability, and integration. [@howilo2022]
+
+This is achieved through combating discrimination, social exclusion, and inequalities, building social capital through networks, trust, and identity among different societal groups, and enabling upward social mobility [@oecd2011].
+
+In Sudan, a conflict between the Sudanese Armed Forces (SAF) and Rapid Support Forces (RSF) began on April 15, 2023, the humanitarian situation in Sudan has worsened, with millions of people being displaced [@unicefs2023] . Here are some key points about the situation:
+
+\- **Displacement:** More than 3 million people have been internally displaced across 18 states due to the ongoing conflict between the SAF and RSF . As of July 4, 2023, more than 2.8 million people had been displaced due to the conflict [@sudaniom2024]. The UN Refugee Agency (UNHCR) estimates that up to 1 million people may flee to neighboring countries**.** Family separations are a major protection risk and concern. About 90,000 people (18,000 to 19,000 households) were displaced across several displacement camps near Tawila town, according to the IOM Displacement Tracking Matrix (DTM).
+
+\- **Humanitarian needs**: Since the outbreak of the conflict, it is estimated that about 25 million people urgently need humanitarian assistance in the country, representing over half of Sudan’s inhabitants. The crisis has triggered large-scale population movements, both within Sudan and in the region. Sudan was already experiencing a humanitarian crisis before the conflict broke out, with more than 15 million people facing severe food insecurity and more than 3.7 million internally displaced persons. Sudan hosts more than 1.1 million refugees – one of the highest numbers in Africa – and almost all require humanitarian assistance [@sudaniom2024].
+
+\- **Violence:** At least 1,081 deaths and about 11,714 injuries have been recorded since the start of the conflict across the country, according to the Federal Ministry of Health. Clashes between the SAF and RSF have continued, particularly in Khartoum, Kordofan, and Darfur states. In North Darfur, clashes broke out in Tawila town on June 16, leading to killing and injury of civilians, including internally displaced people and widespread displacement [@ferragamo2024].
+
+\- **Impact on vulnerable groups:** The conflict has made many groups vulnerable due to displacement and conflict [@unicefs2023]. Family separations are a major protection risk and concern. Children are particularly vulnerable, with 450,000 newly displaced children as of May 30, 2023. Women and girls are also at risk of gender-based violence, including sexual violence. The conflict has also worsened an already precarious humanitarian situation, with more than 15 million people facing severe food insecurity and more than 3.7 million internally displaced persons [@unicefs2023].
+
+The humanitarian situation in Sudan is dire, with millions of people being displaced and in need of urgent assistance. The conflict has worsened an already precarious situation, with many vulnerable groups at risk of violence and displacement.
+
+Host communities often have better access to housing, services, and formal and informal employment opportunities compared to displaced families. Consequently, displaced individuals face disadvantages resulting from limited social networks, reliance on state assistance, and difficulties accessing labor markets [@colombia2011].
+
+Relations between host communities and displaced persons are complex, subject to changes and modifications as a result of massive displacements that alter the population profiles of host regions [@howilo2022]. Initially, there may be expressions of solidarity and support from friends and family members when IDPs first arrive. However, these positive sentiments often fade due to limited resources within the host community [@colombia2011]
+
+The influx of a large number of displaced people can be perceived by host communities as competition for jobs, potentially reducing wages and working conditions [@howilo2022]. This further contributes to a lack of trust and can lead to social tensions, as the perception of increased competition for resources undermines social cohesion and perpetuates feelings of social injustice and exclusion [@howilo2022].
+
+## Problem Statement
+
+Hosting IDPs can exacerbate the impoverishment of the host family and cause different forms of exploitation within and between the hosted and the hosts. Host communities may suffer from having to share inadequate resources with sudden influxes of IDPs or from gradual depletion of resources over time. IDPs may come to be seen as unwelcome and be targeted for discrimination - or worse. For all these reasons it is becoming urgent to learn more about IDPs living with host families and to devise systematic tools and approaches to protect and assist them, where necessary [@davies2012].
+
+High levels of social cohesion are linked to numerous positive outcomes, such as environmental sustainability, social stability, improved health, and effective responses to societal challenges like the COVID-19 pandemic. Social cohesion fosters a sense of community, cooperation, trust, and solidarity among society's members. Communities with high social cohesion levels are likely to experience lower conflict, crime rates, and social unrest, leading to overall well-being and resilience [@moustakas2023].
+
+To address these challenges, it is important to raise awareness among host communities about the experiences and needs of IDPs. Additionally, reviewing policies of assistance to displaced populations with a long-term perspective is essential [@colombia2011].
+
+## Rationale
+
+Promoting social cohesion is crucial for sustainable development, peacebuilding efforts, and the overall stability of societies affected by internal displacement [@Kao2024]. Understanding the factors that contribute to positive interactions between IDPs and host communities will enable policymakers, humanitarian organizations, and local authorities to design targeted interventions that address the specific needs of both groups.
+
+The purpose of this research is to investigate the factors that contribute/hinder to social cohesion between internally displaced people (IDPs) and host communities. our study would contribute to identify effective strategies and interventions that can be implemented to address the specific needs and challenges faced in order to foster positive relationships, mutual understanding, and cooperation between these two groups. By investigating social cohesion & resilience, this research seeks to enhance the overall well-being and integration of IDPs within their host communities.
+
+## Study Objectives
+
+### General objective
+
+To study the social cohesion and resilience between internally displaced people (IDPs) and host communities & the impact on wellbeing during armed conflict in Sudan 2024
+
+### Primary Specific Objectives
+
+1.  To assess the social cohesion within IDPs communities towards host communities.
+
+2.  To measure the level of resilience among IDPs in comparison to host communities.
+
+3.  To identify key factors (based on demographics, socioeconomic factors, length of displacement, etc.) that contribute to or hinder social cohesion and resilience.
+
+4.  To assess the impact of social cohesion on the well-being of IDPs & the host community.
+
+### Secondary objectives
+
+5.  To provide recommendations for policies and interventions that promote social cohesion and resilience.

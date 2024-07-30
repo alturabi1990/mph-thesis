@@ -1,0 +1,54 @@
+::: {.content-visible when-format="html"}
+A thesis submitted for the degree of {{< meta degreetype >}} at International University of Africa (IUA), {{< meta affiliation>}}
+:::
+
+# Abstract {.unnumbered}
+
+The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.
+
+# Declaration {.unnumbered}
+
+This thesis is an original work of my research and contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
+
+Student name: *Elhami A.A. Ahmed*
+
+Student signature:
+
+Date: 01/August /2024
+
+#### Reproducibility statement
+
+*This thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the **Github repository**[`github.com/SusanSu/thesis`](https://github.com/SusanSu/thesis).*
+
+*This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).*
+
+# Dedication {.unnumbered}
+
+This thesis is dedicated to my parents whose endless love, support, and encouragement have been the foundation of all my achievements. Your unwavering belief in my potential has inspired me to pursue my dreams and strive for excellence.
+
+To my partner, Fatim, for your constant love, understanding, and patience. Your support has been my anchor through the highs and lows of this journey.
+
+To my mentors and teachers, who have guided me with wisdom and nurtured my passion for public health. Your dedication to education and research has profoundly influenced my academic and professional growth.
+
+And finally, to all those who are committed to improving public health and making a difference in the lives of others. May this work contribute to the ongoing efforts to create healthier communities and a better world.
+
+# Acknowledgements {.unnumbered}
+
+> First and foremost, I would like to express my deepest gratitude to my thesis advisor, `Dr. Murwan Eissa`, whose expertise, patience, and guidance were instrumental in the completion of this thesis. Your insightful feedback and unwavering support were invaluable throughout this journey. A special thank you to the faculty and staff of the Faculty of Medicine at International University of Africa (IUA) for providing a supportive academic environment and for all the assistance provided during my studies. I would like to acknowledge MOH- River Nile State & Locality offices for their support and resources that facilitated the research process. Your generosity made it possible for me to focus on my studies and research.
+>
+> To my colleagues, particularly, `Nusaiba.Z.Kambal, Safeeya Abolikelik, Tebyan A.A. Mohmmed, Arwa, emtenan, Omer D. H. Bayoume, Tagwa H. A Alamin, Rami Salah Omer`, thank you for the camaraderie, stimulating discussions, and for the times we shared both the challenges and triumphs of our academic endeavors. Your critical insights and constructive suggestions have greatly enhanced the quality of my research.
+>
+> I am deeply indebted to the participants of my study, whose willingness to contribute their time and insights was essential to the completion of this research. Your contributions have been fundamental to this work.
+>
+> On a personal note, I wish to extend my heartfelt thanks to `my wife, Daughter, family and friends` for their unwavering support, patience, and understanding throughout this process. To my parents, your belief in me has been a constant source of motivation.
+>
+> Lastly, I would like to thank everyone who, in one way or another, has contributed to the completion of this thesis. Your support has been a cornerstone of my success.
+>
+> Thank you all.
+
+```{=html}
+<!--
+The following line is required to re-set page numbering after preliminary material in the pdf output. Do not remove
+-->
+```
+\clearpage\pagenumbering{arabic}\setcounter{page}{1}
