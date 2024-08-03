@@ -17,7 +17,7 @@ contributes:
           message: false
     pdf:
       documentclass: report
-      pdf-engine: pdflatex
+      pdf-engine:  pdflatex
       papersize: a4
       fontsize: 11pt
       geometry:
@@ -25,7 +25,7 @@ contributes:
       - bottom=2.5cm
       - left=2.5cm
       - right=2.5cm
-      block-headings: false
+      block-headings: true
       colorlinks: true
       linestretch: 1.5
       template-partials:

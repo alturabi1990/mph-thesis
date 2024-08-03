@@ -58,6 +58,18 @@
 
 %% TABLES
 \usepackage{booktabs,tabu}
+\usepackage{graphicx} % For \resizebox
+\usepackage{tabularx} % For automatically adjusting column widths
+
+% Custom table environment to automatically resize tables
+\newenvironment{resizetable}
+  {\begin{table}\resizebox{\textwidth}{!}{\begin{tabular}}
+  {\end{tabular}}\end{table}}
+
+% Custom tabular environment that uses tabularx
+\newenvironment{xtable}
+  {\begin{table}\centering\begin{tabularx}{\textwidth}{lXX}} % Adjust column specifier as needed
+  {\end{tabularx}\end{table}}
 
 %% BIBLIOGRAPHY.
 
@@ -97,3 +109,17 @@
 \clubpenalty = 2000
 \widowpenalty = 2000
 \usepackage{microtype}
+
+
+
+
+% Custom command for inserting a centered title page
+\newcommand{\insertchaptertitlepage}[1]{
+  \clearpage
+  \begin{titlepage}
+    \centering
+    \vspace*{\fill}
+    {\Huge\bfseries #1\par}
+    \vspace*{\fill}
+  \end{titlepage}
+}
