@@ -1,4 +1,4 @@
-title: "Social Cohesion and Resilience Between IDPs and Host Communities and Wellbeing in River Nile State 2024"
+title: "Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024"
 author: "Elhami A.A. Ahmed. MBBS, MoSoc"
 corresponding: true
 contributes:
@@ -32,6 +32,9 @@ contributes:
         - "before-title.tex"
         - "title.tex"
     html:
+      output-dir: ./docs
+      #self-contained: true
+      #embed-resources: true
       theme:
         - cosmo
         - thesis.scss
