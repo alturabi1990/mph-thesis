@@ -2,17 +2,17 @@
 title: "README"
 author: "Elhami A.A. Ahmed"
 date: "2024-08-03"
-format: 
-  pdf:
-    format: book
-    theme: beamer
+format: html
+#  pdf:
+#    format: book
+#    theme: beamer
 ---
 
 # Thesis Project Overview
 
 ## Title
 
-**Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024**
+[**Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024**](https://alturabi1990.github.io/mph-thesis/)
 
 ## Principal Investigator
 
@@ -29,7 +29,7 @@ International University of Africa (IUA), Faculty of Medicine
 
 ## Project Description
 
-This thesis investigates the dynamics of social cohesion and resilience between internally displaced persons (IDPs) and host communities in the context of armed conflict, with a focus on wellbeing in River Nile State, Sudan. The study employs quantitative methods to analyze associations between socio-demographic factors, displacement status, and perceptions of social cohesion and resilience.
+This thesis investigates the dynamics of social cohesion and resilience between internally displaced persons (IDPs) and host communities in the context of armed conflict, with a focus on wellbeing in River Nile State, Sudan. The study employs quantitative methods to analyze associations between socio-demographic factors, displacement status, and perceptions of social cohesion and resilience [MPH Thesis](https://alturabi1990.github.io/mph-thesis/).
 
 ## How to Compile the Thesis
 
