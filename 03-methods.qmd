@@ -16,7 +16,7 @@ execute:
 #    highlight-style: github
 ---
 
-# Materials & Methods
+# Materials and Methods
 
 ## Study Design
 
