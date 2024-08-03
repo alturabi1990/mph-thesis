@@ -4,7 +4,7 @@ A thesis submitted for the degree of {{< meta degreetype >}} at International Un
 
 # Abstract {.unnumbered}
 
-The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.
+> **Background:** The ongoing conflict between the Sudanese Armed Forces (SAF) and the Rapid Support Forces (RSF) since April 15, 2023, has triggered a severe humanitarian crisis in Sudan, displacing over 3 million people. This crisis has intensified vulnerabilities such as food insecurity and social tensions within host communities, exacerbating competition for resources and threatening social cohesion. This study aims to explore the dynamics between internally displaced persons (IDPs) and host communities to enhance resilience and integration. The objectives are to assess social cohesion, measure resilience, identify influential factors, and evaluate the impact of social cohesion on well-being to guide effective intervention strategies. **Methods:** An analytical cross-sectional study was conducted in the River Nile state, focusing on adults aged 18 and above from both IDP and host communities impacted by the conflict. Data were collected via a self-structured questionnaire, administered face-to-face by trained research assistants using the Kobocollect mobile app. Statistical analyses, using R, included descriptive and inferential statistics to explore relationships between variables. Ethical approvals and gatekeepers' permissions were obtained, and consent was secured from all participants, adhering to confidentiality and privacy standards. **Results:** The study comprised 410 participants—260 IDPs and 150 host community members. Significant socio-economic differences were noted: IDPs had a median age of 31 years, with higher rates of university (48% vs. 40%) and post-graduate education (25% vs. 11%) compared to host community members (p \< 0.001). Post-conflict, IDPs saw a decrease in professional employment (44% to 19%) and an increase in unemployment (42% vs. 34%) (p \< 0.001). Social cohesion was assessed through friendships and community engagement. Among IDPs, 47% had few friends within the host community and 59% felt welcomed, but 69% had average social integration scores. Perceived discrimination negatively impacted social cohesion, with those experiencing it reporting lower integration levels (p \< 0.001). Resilience analysis showed that 26% of participants had low psychological well-being, with IDPs particularly affected (29% vs. 20% for host community members) (p \< 0.001). Overall, while some integration was observed, IDPs faced significant challenges affecting their social cohesion and resilience. **Discussion:** The study highlights substantial socio-economic disparities and variations in social cohesion and resilience between IDPs and host community members in River Nile State. IDPs experienced greater challenges in housing, income, and employment. Despite these issues, high levels of social integration and shared values were evident. Resilience scores indicated lower psychological well-being and preparedness among IDPs compared to host community members. The findings underscore the need for targeted interventions to improve social cohesion and address the specific needs of IDPs for better integration and support. **Conclusion:** The study reveals that while there is some degree of social cohesion between IDPs and host communities, IDPs face significant challenges, including economic instability and lower psychological well-being. Discrimination negatively impacts social integration, emphasizing the need for targeted interventions to enhance resilience and strengthen social cohesion.
 
 # Declaration {.unnumbered}
 
@@ -12,15 +12,11 @@ This thesis is an original work of my research and contains no material which ha
 
 Student name: *Elhami A.A. Ahmed*
 
-Student signature:
+Date: August /2024
 
-Date: 01/August /2024
+# Reproducibility statement
 
-#### Reproducibility statement
-
-*This thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the **Github repository**[`github.com/SusanSu/thesis`](https://github.com/SusanSu/thesis).*
-
-*This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).*
+This thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the **Github repository** [`github.com/alturabi1990/mph-thesis`](https://github.com/alturabi1990/mph-thesis).
 
 # Dedication {.unnumbered}
 
