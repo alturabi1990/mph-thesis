@@ -1,0 +1,41 @@
+---
+title: "README"
+author: "Elhami A.A. Ahmed"
+date: "2024-08-03"
+format: 
+  pdf:
+    format: book
+    theme: beamer
+---
+
+# Thesis Project Overview
+
+## Title
+
+**Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024**
+
+## Principal Investigator
+
+**Elhami A.A. Ahmed**
+
+## Supervisor
+
+**Dr. Murwan Osman**
+
+## Degree Program
+
+Master of Public Health (MPH)\
+International University of Africa (IUA), Faculty of Medicine
+
+## Project Description
+
+This thesis investigates the dynamics of social cohesion and resilience between internally displaced persons (IDPs) and host communities in the context of armed conflict, with a focus on wellbeing in River Nile State, Sudan. The study employs quantitative methods to analyze associations between socio-demographic factors, displacement status, and perceptions of social cohesion and resilience.
+
+## How to Compile the Thesis
+
+1.  **Ensure all dependencies are installed**: Before compiling, make sure that Quarto, R, and all necessary R packages are installed on your system.
+2.  **Compile the document**: Run the following command in your terminal or RStudio to render the entire thesis document:
+
+```{bash}
+quarto_render("index.qmd", "pdf")
+```
