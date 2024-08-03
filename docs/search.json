@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024",
     "section": "",
-    "text": "A thesis submitted for the degree of Master of Public Health “MPH” at International University of Africa (IUA), Faculty of Medicine\n\nAbstract\n\nBackground: The ongoing conflict between the Sudanese Armed Forces (SAF) and the Rapid Support Forces (RSF) since April 15, 2023, has triggered a severe humanitarian crisis in Sudan, displacing over 3 million people. This crisis has intensified vulnerabilities such as food insecurity and social tensions within host communities, exacerbating competition for resources and threatening social cohesion. This study aims to explore the dynamics between internally displaced persons (IDPs) and host communities to enhance resilience and integration. The objectives are to assess social cohesion, measure resilience, identify influential factors, and evaluate the impact of social cohesion on well-being to guide effective intervention strategies. Methods: An analytical cross-sectional study was conducted in the River Nile state, focusing on adults aged 18 and above from both IDP and host communities impacted by the conflict. Data were collected via a self-structured questionnaire, administered face-to-face by trained research assistants using the Kobocollect mobile app. Statistical analyses, using R, included descriptive and inferential statistics to explore relationships between variables. Ethical approvals and gatekeepers’ permissions were obtained, and consent was secured from all participants, adhering to confidentiality and privacy standards. Results: The study comprised 410 participants—260 IDPs and 150 host community members. Significant socio-economic differences were noted: IDPs had a median age of 31 years, with higher rates of university (48% vs. 40%) and post-graduate education (25% vs. 11%) compared to host community members (p &lt; 0.001). Post-conflict, IDPs saw a decrease in professional employment (44% to 19%) and an increase in unemployment (42% vs. 34%) (p &lt; 0.001). Social cohesion was assessed through friendships and community engagement. Among IDPs, 47% had few friends within the host community and 59% felt welcomed, but 69% had average social integration scores. Perceived discrimination negatively impacted social cohesion, with those experiencing it reporting lower integration levels (p &lt; 0.001). Resilience analysis showed that 26% of participants had low psychological well-being, with IDPs particularly affected (29% vs. 20% for host community members) (p &lt; 0.001). Overall, while some integration was observed, IDPs faced significant challenges affecting their social cohesion and resilience. Discussion: The study highlights substantial socio-economic disparities and variations in social cohesion and resilience between IDPs and host community members in River Nile State. IDPs experienced greater challenges in housing, income, and employment. Despite these issues, high levels of social integration and shared values were evident. Resilience scores indicated lower psychological well-being and preparedness among IDPs compared to host community members. The findings underscore the need for targeted interventions to improve social cohesion and address the specific needs of IDPs for better integration and support. Conclusion: The study reveals that while there is some degree of social cohesion between IDPs and host communities, IDPs face significant challenges, including economic instability and lower psychological well-being. Discrimination negatively impacts social integration, emphasizing the need for targeted interventions to enhance resilience and strengthen social cohesion.\n\n\n\nDeclaration\nThis thesis is an original work of my research and contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.\nStudent name: Elhami A.A. Ahmed\nDate: August /2024\n\n\nReproducibility statement\nThis thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository github.com/alturabi1990/mph-thesis.\n\n\nDedication\nThis thesis is dedicated to my parents whose endless love, support, and encouragement have been the foundation of all my achievements. Your unwavering belief in my potential has inspired me to pursue my dreams and strive for excellence.\nTo my partner, Fatim, for your constant love, understanding, and patience. Your support has been my anchor through the highs and lows of this journey.\nTo my mentors and teachers, who have guided me with wisdom and nurtured my passion for public health. Your dedication to education and research has profoundly influenced my academic and professional growth.\nAnd finally, to all those who are committed to improving public health and making a difference in the lives of others. May this work contribute to the ongoing efforts to create healthier communities and a better world.\n\n\nAcknowledgements\n\nFirst and foremost, I would like to express my deepest gratitude to my thesis advisor, Dr. Murwan Eissa, whose expertise, patience, and guidance were instrumental in the completion of this thesis. Your insightful feedback and unwavering support were invaluable throughout this journey. A special thank you to the faculty and staff of the Faculty of Medicine at International University of Africa (IUA) for providing a supportive academic environment and for all the assistance provided during my studies. I would like to acknowledge MOH- River Nile State & Locality offices for their support and resources that facilitated the research process. Your generosity made it possible for me to focus on my studies and research.\nTo my colleagues, particularly, Nusaiba.Z.Kambal, Safeeya Abolikelik, Tebyan A.A. Mohmmed, Arwa, emtenan, Omer D. H. Bayoume, Tagwa H. A Alamin, Rami Salah Omer, thank you for the camaraderie, stimulating discussions, and for the times we shared both the challenges and triumphs of our academic endeavors. Your critical insights and constructive suggestions have greatly enhanced the quality of my research.\nI am deeply indebted to the participants of my study, whose willingness to contribute their time and insights was essential to the completion of this research. Your contributions have been fundamental to this work.\nOn a personal note, I wish to extend my heartfelt thanks to my wife, Daughter, family and friends for their unwavering support, patience, and understanding throughout this process. To my parents, your belief in me has been a constant source of motivation.\nLastly, I would like to thank everyone who, in one way or another, has contributed to the completion of this thesis. Your support has been a cornerstone of my success.\nThank you all.",
+    "text": "A thesis submitted for the degree of Master of Public Health “MPH” at International University of Africa (IUA), Faculty of Medicine\n\nAbstract\n\nBackground: The ongoing conflict between the Sudanese Armed Forces (SAF) and the Rapid Support Forces (RSF) since April 15, 2023, has triggered a severe humanitarian crisis in Sudan, displacing over 3 million people. This crisis has intensified vulnerabilities such as food insecurity and social tensions within host communities, exacerbating competition for resources and threatening social cohesion. This study aims to explore the dynamics between internally displaced persons (IDPs) and host communities to enhance resilience and integration. The objectives are to assess social cohesion, measure resilience, identify influential factors, and evaluate the impact of social cohesion on well-being to guide effective intervention strategies. Methods: An analytical cross-sectional study was conducted in the River Nile state, focusing on adults aged 18 and above from both IDP and host communities impacted by the conflict. Data were collected via a self-structured questionnaire, administered face-to-face by trained research assistants using the Kobocollect mobile app. Statistical analyses, using R, included descriptive and inferential statistics to explore relationships between variables. Ethical approvals and gatekeepers’ permissions were obtained, and consent was secured from all participants, adhering to confidentiality and privacy standards. Results: The study comprised 410 participants—260 IDPs and 150 host community members. Significant socio-economic differences were noted: IDPs had a median age of 31 years, with higher rates of university (48% vs. 40%) and post-graduate education (25% vs. 11%) compared to host community members (p &lt; 0.001). Post-conflict, IDPs saw a decrease in professional employment (44% to 19%) and an increase in unemployment (42% vs. 34%) (p &lt; 0.001). Social cohesion was assessed through friendships and community engagement. Among IDPs, 47% had few friends within the host community and 59% felt welcomed, but 69% had average social integration scores. Perceived discrimination negatively impacted social cohesion, with those experiencing it reporting lower integration levels (p &lt; 0.001). Resilience analysis showed that 26% of participants had low psychological well-being, with IDPs particularly affected (29% vs. 20% for host community members) (p &lt; 0.001). Overall, while some integration was observed, IDPs faced significant challenges affecting their social cohesion and resilience. Discussion: The study highlights substantial socio-economic disparities and variations in social cohesion and resilience between IDPs and host community members in River Nile State. IDPs experienced greater challenges in housing, income, and employment. Despite these issues, high levels of social integration and shared values were evident. Resilience scores indicated lower psychological well-being and preparedness among IDPs compared to host community members. The findings underscore the need for targeted interventions to improve social cohesion and address the specific needs of IDPs for better integration and support. Conclusion: The study reveals that while there is some degree of social cohesion between IDPs and host communities, IDPs face significant challenges, including economic instability and lower psychological well-being. Discrimination negatively impacts social integration, emphasizing the need for targeted interventions to enhance resilience and strengthen social cohesion.\n\n\n\nDeclaration\nThis thesis is an original work of my research and contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.\nStudent name: Elhami A.A. Ahmed\nDate: August /2024\n\n\nReproducibility statement\nThis thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository github.com/alturabi1990/mph-thesis. To read my thesis please visit hit this link MPH Thesis\n\n\nDedication\nThis thesis is dedicated to my parents whose endless love, support, and encouragement have been the foundation of all my achievements. Your unwavering belief in my potential has inspired me to pursue my dreams and strive for excellence.\nTo my partner, Fatim, for your constant love, understanding, and patience. Your support has been my anchor through the highs and lows of this journey.\nTo my mentors and teachers, who have guided me with wisdom and nurtured my passion for public health. Your dedication to education and research has profoundly influenced my academic and professional growth.\nAnd finally, to all those who are committed to improving public health and making a difference in the lives of others. May this work contribute to the ongoing efforts to create healthier communities and a better world.\n\n\nAcknowledgements\n\nFirst and foremost, I would like to express my deepest gratitude to my thesis advisor, Dr. Murwan Eissa, whose expertise, patience, and guidance were instrumental in the completion of this thesis. Your insightful feedback and unwavering support were invaluable throughout this journey. A special thank you to the faculty and staff of the Faculty of Medicine at International University of Africa (IUA) for providing a supportive academic environment and for all the assistance provided during my studies. I would like to acknowledge MOH- River Nile State & Locality offices for their support and resources that facilitated the research process. Your generosity made it possible for me to focus on my studies and research.\nTo my colleagues, particularly, Nusaiba.Z.Kambal, Safeeya Abolikelik, Tebyan A.A. Mohmmed, Arwa, emtenan, Omer D. H. Bayoume, Tagwa H. A Alamin, Rami Salah Omer, thank you for the camaraderie, stimulating discussions, and for the times we shared both the challenges and triumphs of our academic endeavors. Your critical insights and constructive suggestions have greatly enhanced the quality of my research.\nI am deeply indebted to the participants of my study, whose willingness to contribute their time and insights was essential to the completion of this research. Your contributions have been fundamental to this work.\nOn a personal note, I wish to extend my heartfelt thanks to my wife, Daughter, family and friends for their unwavering support, patience, and understanding throughout this process. To my parents, your belief in me has been a constant source of motivation.\nLastly, I would like to thank everyone who, in one way or another, has contributed to the completion of this thesis. Your support has been a cornerstone of my success.\nThank you all.",
     "crumbs": [
       "Front matter"
     ]
@@ -82,111 +82,111 @@
   {
     "objectID": "03-methods.html",
     "href": "03-methods.html",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "",
     "text": "3.1 Study Design\nAnalytical cross-sectional community-based study",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#study-area",
     "href": "03-methods.html#study-area",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.2 Study area",
     "text": "3.2 Study area\nThis study included River Nile state that is 2nd most affected state by the displacement with (10%) of the total IDPs according to displacement tracking matrix (DTM) Sudan in their Sudan situation report 28 published in 28th of April 2024 (International Organization for Migration (IOM), 2024) .\nWe targeted different types of shelters as well as households to reach for IDPs and members of host communities.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#study-populations",
     "href": "03-methods.html#study-populations",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.3 Study populations",
     "text": "3.3 Study populations\nThe study included both adults above or equal 18 yearsd from IDPs & host communities as follows:\n\nIDPs communities from different shelter types in host community\nHost communities: they were selected from the members surrounding the IDP communities\n\n\nInclusion criteria\n\nAll adult IDPs who have been displaced due to the armed clashes in 15th of April 2023\nAll adults who host IDPs in their homes or staying near IDPs due to the armed clashes in 15th of April 2023\n\n\n\nExclusion criteria\n\nAll IDPs who have been displaced before the armed clashes in 15th of April 2023\nAll potential participants who refuse to participate in the study\nHost community members who are far away from displacement",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#sampling",
     "href": "03-methods.html#sampling",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.4 Sampling",
     "text": "3.4 Sampling\n\nSample size\nThe sample size was determined based on statistical power calculations to ensure adequate representation and generalizability of findings. we used the Cochran equation to calculate the sample for our study.\nn = Z^2*P*q / e^2\nconsidering 95% confidence level (Z = 1.96)\nP = the estimated proportion for the social cohesion & resilience (unknown so our p = 0.5)\nq = 1 - p = 1 - 0.5 = 0.5\ne = desired precision level (0.05)\nn = 1.96^2*0.5*0.5 / 0.05^2 = 385\nConsidering non-response rate of 5% the total will be 385 + 19 = 404\nWe divided the sample size between the IDPs & host community members.\n\n\nSampling Technique\n   We adopted a multistage cluster sampling technique to select participants from both the IDP and host communities.\n\nFirstly, for the state, we have 6 selected localities to represent different characteristics (distance from origin, clashes, & center of the state) \nAt the locality level, we conveniently selected the major city (urban, Atbara) and at least one village (rural).\nThirdly, participants were selected from different settings to guarantee taking diverse areas (households, health facilities, market, housing centres)",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#study-variables",
     "href": "03-methods.html#study-variables",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.5 Study variables",
     "text": "3.5 Study variables\nThe study had measured various variables related to:\nSocial cohesion in IDPs communities’ variables\n\nSocial integration & participation, social support, shared values and goals\n\nSocial cohesion within host communities\n\nIntergroup contact, social inclusion, cultural integration\n\nlevel of resilience among IDPs in comparison to host communities:\n\nPsychological resilience, social resilience, economic resilience\n\nfactors influencing (contribute to or hinder) social cohesion and resilience among\n\nDemographic variables: Age, gender, education level, marital status, Length of displacement for IDPs, etc.\nSocio-economic variables: Income, employment status, housing conditions, etc.\nCultural differences\nMarginalization and exclusion of certain IDP groups\n\nExamine the impact of social cohesion on the well-being and integration of IDPs:\n\nPhysical, social, mental and emotional well-being of IDPs & host members\nAccess to resources and basic services: such as healthcare, education, and infrastructure for both groups.\n\nAssess the role of community support systems in facilitating social cohesion:\n\nAvailability and effectiveness of government initiatives for IDPs\nRole of NGOs and community organizations in promoting integration",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#data-collection",
     "href": "03-methods.html#data-collection",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.6 Data Collection",
     "text": "3.6 Data Collection\nData had been collected using self-structured questionnaire for measuring social cohesion and resilience as well as their consequences Section 3. \nThe questionnaire had consisted of numerical, multiple-choice and Likert scale questions, allowing for quantitative analysis.\nThe questionnaire had been administered face-to-face by trained research assistants who were familiar with the local context and sensitive to cultural nuances using Kobocollectmobile app.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#data-management",
     "href": "03-methods.html#data-management",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.7 Data Management",
     "text": "3.7 Data Management\nCollected data was securely stored and accessible only to authorized researchers. Data entry was double-checked for accuracy, and any identifying information was removed or anonymized during analysis and reporting.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#data-analysis",
     "href": "03-methods.html#data-analysis",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.8 Data Analysis",
     "text": "3.8 Data Analysis\n\n\n\n\n\n\n%%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%\n%%| fig-width: 6\nflowchart LR\nimp[Import]\nrec[Recode]\nannot[Annotate]\nanal[Analysis]\nuni[Univariate&lt;br&gt;Descriptive&lt;br&gt;Analysis]\nds[Data&lt;br&gt;Snapshot]\nbiv[Descriptive&lt;br&gt;Association&lt;br&gt;Analysis]\nimp --&gt; rec --&gt; annot --&gt; ds --&gt; anal\nanal --&gt; uni & biv\n\n\n\n\nFigure 3.1: FlowChart for the Project Implementation Phases\n\n\n\n\n\nAll statistical analyses were conducted using R, a language and environment for statistical computing and graphics . R provides a wide array of statistical and graphical techniques and is highly extensible . The analyses included data cleaning, descriptive statistics, inferential statistics, and data visualization as shown in Figure 3.1 .\nFirst, in order to do a proper presentation of the variables, we have conducted a normality testing using Shapiro-Wilk tests on our numerical variables. So accordingly, we have reported the quantitative data obtained from the questionnaires was analyzed using appropriate statistical techniques.\nDescriptive statistics summarizes the demographic characteristics of participants and other variables, while inferential statistics explores relationships between variables and identify factors influencing social cohesion and resilience.\nWe used the statistical language R and RStudio for all our analyses (Henry & Wickham, 2024).\nThese were implemented in dynamic rmarkdown documents using knitr (Xie, 2023) and rmarkdown (Allaire et al., 2023) packages.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#writing-and-documentation",
     "href": "03-methods.html#writing-and-documentation",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.9 Writing and Documentation",
     "text": "3.9 Writing and Documentation\nThis thesis was written and documented using Quarto, an open-source scientific and technical publishing system. Quarto enables the integration of R code with narrative text, allowing for reproducible research and dynamic report generation.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#ethical-considerations",
     "href": "03-methods.html#ethical-considerations",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.10 Ethical Considerations",
     "text": "3.10 Ethical Considerations\nEthical approval was obtained from both the International University of Africa and REC of State Ministry of Health (SMoH)- River State before data collection began Section 1.\nPermissions from related gatekeepers (the household members, any community bodies if necessary as well as the official persons in case of IDP community settings) were obtained Section 2\nInformed consent was obtained from all participants prior to their involvement in the study. This research adhered to ethical guidelines regarding confidentiality, privacy protection, and anonymity of participants’ responses by assigning unique identification codes to each questionnaire Section 3 .",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
     "objectID": "03-methods.html#timeline",
     "href": "03-methods.html#timeline",
-    "title": "3  Materials & Methods",
+    "title": "3  Materials and Methods",
     "section": "3.11 Timeline",
     "text": "3.11 Timeline\nA tentative timeline for the various stages of your research, including data collection, analysis, and report writing. This timeline should cover the duration of your project.\n\n\n\n\n\n\n%%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%\n\ngantt\n    title Research Project Timeline\n    dateFormat YYYY-MM\n    axisFormat %d-%b-%Y\n    \n    section Preparation phase\n    Research protocol: a1, 2024-05-01, 14d\n    Ethical approval/Gatekeepers' permissions : crit, a2, after a1, 14d\n    Data Collectors Training: after a2, 3d\n    \n    section Implementation phase\n    Data collection : 2024-05-29, 7d\n    Data entry & analysis: crit, 2024-06-15, 7d\n    \n    section Dissimination phase\n     Writing the report: crit, 2024-07-01, 14d\n     Thesis Defence: 2024-07-15, 14d\n\n\n\n\nFigure 3.2: Gantt’s Chart for the Project Timeline\n\n\n\n\n\n\n\n\n\nAllaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W., & Iannone, R. (2023). Rmarkdown: Dynamic documents for r. https://github.com/rstudio/rmarkdown\n\n\nHenry, L., & Wickham, H. (2024). Rlang: Functions for base types and core r and ’tidyverse’ features. https://CRAN.R-project.org/package=rlang\n\n\nInternational Organization for Migration (IOM). (2024). DTM DTM sudan weekly displacement snapshot 28. IOM, Sudan. https://dtm.iom.int/reports/dtm-sudan-weekly-displacement-snapshot-28\n\n\nXie, Y. (2023). Knitr: A general-purpose package for dynamic report generation in r. https://yihui.org/knitr/",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials & Methods</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Materials and Methods</span>"
     ]
   },
   {
