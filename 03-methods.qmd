@@ -24,7 +24,7 @@ Analytical cross-sectional community-based study
 
 ## Study area
 
-This study included River Nile state that is 2nd most affected state by the displacement with (10%) of the total IDPs according to displacement tracking matrix (DTM) Sudan in their Sudan situation report 28 published in 28th of April 2024 **(Ref)**.
+This study included River Nile state that is 2nd most affected state by the displacement with (10%) of the total IDPs according to displacement tracking matrix (DTM) Sudan in their Sudan situation report 28 published in 28th of April 2024 [@sudaniomsitrep2024] .
 
 We targeted different types of shelters as well as households to reach for IDPs and members of host communities.
 
@@ -32,7 +32,7 @@ We targeted different types of shelters as well as households to reach for IDPs 
 
 The study included both adults above or equal 18 yearsd from IDPs & host communities as follows:
 
--   IDPs communities from different shelter types (mainly, camps(-like) settings, in host community & in rented accommodations)
+-   IDPs communities from different shelter types in host community
 
 -   Host communities: they were selected from the members surrounding the IDP communities
 
@@ -44,8 +44,6 @@ The study included both adults above or equal 18 yearsd from IDPs & host communi
 ### Exclusion criteria
 
 -   All IDPs who have been displaced before the armed clashes in 15th of April 2023
-
--   All IDPs who have houses in the host community and they regularly visit their home place.
 
 -   All potential participants who refuse to participate in the study
 
@@ -59,17 +57,17 @@ The sample size was determined based on statistical power calculations to ensure
 
 $n = Z^2*P*q / e^2$
 
-considering `95%` confidence level (`Z = 1.96`)
+considering 95% confidence level (Z = 1.96)
 
 `P` = the estimated proportion for the social cohesion & resilience (unknown so our p = 0.5)
 
-`q = 1 - p = 1 - 0.5 = 0.5`
+q = 1 - p = 1 - 0.5 = 0.5
 
 e = desired precision level (`0.05`)
 
-$n = 1.96^2*0.5*0.5 / 0.05^2$ = `385`
+$n = 1.96^2*0.5*0.5 / 0.05^2$ = **385**
 
-Considering *non-response rate of 5%* the total will be `(385 + 19 = 404)`
+Considering *non-response rate of 5%* the total will be 385 + 19 = **404**
 
 We divided the sample size between the IDPs & host community members.
 
@@ -136,6 +134,9 @@ Collected data was securely stored and accessible only to authorized researchers
 ## Data Analysis
 
 ```{mermaid}
+%%| label: fig-mermaid-flowchart
+%%| fig-cap: FlowChart for the Project Implementation Phases
+%%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%
 %%| fig-width: 6
 flowchart LR
 imp[Import]
@@ -149,7 +150,7 @@ imp --> rec --> annot --> ds --> anal
 anal --> uni & biv
 ```
 
-All statistical analyses were conducted using R, a language and environment for statistical computing and graphics . R provides a wide array of statistical and graphical techniques and is highly extensible. The analyses included data cleaning, descriptive statistics, inferential statistics, and data visualization.
+All statistical analyses were conducted using R, a language and environment for statistical computing and graphics . R provides a wide array of statistical and graphical techniques and is highly extensible . The analyses included data cleaning, descriptive statistics, inferential statistics, and data visualization as shown in @fig-mermaid-flowchart .
 
 First, in order to do a proper presentation of the variables, we have conducted a normality testing using `Shapiro-Wilk tests` on our numerical variables. So accordingly, we have reported the quantitative data obtained from the questionnaires was analyzed using appropriate statistical techniques.
 
@@ -157,7 +158,7 @@ Descriptive statistics summarizes the demographic characteristics of participant
 
 We used the statistical language R and RStudio for all our analyses [@rlang].
 
-These were implemented in dynamic rmarkdown documents using knitr ([Xie 2023](#ref-knitr)) and rmarkdown ([Allaire et al. 2023](#ref-rmarkdown)) packages.
+These were implemented in dynamic rmarkdown documents using knitr [@knitr] and rmarkdown [@rmarkdown] packages.
 
 ## Writing and Documentation
 
@@ -173,7 +174,7 @@ Informed consent was obtained from all participants prior to their involvement i
 
 ## Timeline
 
-Outline a tentative timeline for the various stages of your research, including data collection, analysis, and report writing. This timeline should cover the duration of your project.
+A tentative timeline for the various stages of your research, including data collection, analysis, and report writing. This timeline should cover the duration of your project.
 
 ```{mermaid}
 %%| label: fig-mermaid-gantt
@@ -187,7 +188,7 @@ gantt
     
     section Preparation phase
     Research protocol: a1, 2024-05-01, 14d
-    ethical approval/Gatekeepers' permissions : crit, a2, after a1, 14d
+    Ethical approval/Gatekeepers' permissions : crit, a2, after a1, 14d
     Data Collectors Training: after a2, 3d
     
     section Implementation phase
