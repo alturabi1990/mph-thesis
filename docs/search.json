@@ -220,16 +220,6 @@
     ]
   },
   {
-    "objectID": "04-reproducibility.html#software-and-libraries",
-    "href": "04-reproducibility.html#software-and-libraries",
-    "title": "\n4  Reproducibility\n",
-    "section": "\n4.5 Software and Libraries",
-    "text": "4.5 Software and Libraries\n\n\nThe analysis was conducted using R version 4.3.2 (2023-10-31 ucrt) \n and the following libraries:\n\n\ndplyr (version 1.1.4 )\nggplot2 (version 3.5.1 )\ngt (version 0.11.0 )\ngtExtras (version 0.5.0 )\ngtsummary (version 1.7.2 )\nhere (version 1.0.1 )\nHmisc (version 5.1-3 )\ntidyr (version 1.3.1 )",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducibility</span>"
-    ]
-  },
-  {
     "objectID": "04-reproducibility.html#steps-to-reproduce",
     "href": "04-reproducibility.html#steps-to-reproduce",
     "title": "\n4  Reproducibility\n",
@@ -250,11 +240,11 @@
     ]
   },
   {
-    "objectID": "04-reproducibility.html#session-information",
-    "href": "04-reproducibility.html#session-information",
+    "objectID": "04-reproducibility.html#software-and-libraries",
+    "href": "04-reproducibility.html#software-and-libraries",
     "title": "\n4  Reproducibility\n",
-    "section": "\n4.6 Session Information",
-    "text": "4.6 Session Information\n\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.3.2 (2023-10-31 ucrt)\n os       Windows 10 x64 (build 19045)\n system   x86_64, mingw32\n ui       RTerm\n language (EN)\n collate  English_United States.utf8\n ctype    English_United States.utf8\n tz       Asia/Riyadh\n date     2024-08-03\n pandoc   3.1.11 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n cli           3.6.3   2024-06-21 [1] CRAN (R 4.3.2)\n digest        0.6.36  2024-06-23 [1] CRAN (R 4.3.3)\n evaluate      0.24.0  2024-06-10 [1] CRAN (R 4.3.2)\n fastmap       1.2.0   2024-05-15 [1] CRAN (R 4.3.3)\n htmltools     0.5.8.1 2024-04-04 [1] CRAN (R 4.3.3)\n htmlwidgets   1.6.4   2023-12-06 [1] CRAN (R 4.3.2)\n jsonlite      1.8.8   2023-12-04 [1] CRAN (R 4.3.2)\n knitr         1.48    2024-07-07 [1] CRAN (R 4.3.3)\n rlang         1.1.4   2024-06-04 [1] CRAN (R 4.3.3)\n rmarkdown     2.27    2024-05-17 [1] CRAN (R 4.3.3)\n rstudioapi    0.16.0  2024-03-24 [1] CRAN (R 4.3.2)\n sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.3.3)\n xfun          0.46    2024-07-18 [1] CRAN (R 4.3.2)\n yaml          2.3.10  2024-07-26 [1] CRAN (R 4.3.2)\n\n [1] C:/Users/K.HamDi/AppData/Local/R/win-library/4.3\n [2] C:/Program Files/R/R-4.3.2/library\n\n──────────────────────────────────────────────────────────────────────────────",
+    "section": "\n4.5 Software and Libraries",
+    "text": "4.5 Software and Libraries\n\n\nThe analysis was conducted using R version 4.3.2 (2023-10-31 ucrt) \n and the following libraries:\n\n\ndplyr (version 1.1.4 )\nggplot2 (version 3.5.1 )\ngt (version 0.11.0 )\ngtExtras (version 0.5.0 )\ngtsummary (version 1.7.2 )\nhere (version 1.0.1 )\nHmisc (version 5.1-3 )\ntidyr (version 1.3.1 )",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Reproducibility</span>"
     ]
