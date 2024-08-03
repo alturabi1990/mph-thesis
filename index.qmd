@@ -16,7 +16,7 @@ Date: August /2024
 
 # Reproducibility statement
 
-This thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the **Github repository** [`github.com/alturabi1990/mph-thesis`](https://github.com/alturabi1990/mph-thesis).
+This thesis is written using Quarto with renv to create a reproducible environment. All materials (including the data sets and source files) required to reproduce this document can be found at the **Github repository** [`github.com/alturabi1990/mph-thesis`](https://github.com/alturabi1990/mph-thesis). To read my thesis please visit hit this link [MPH Thesis](https://alturabi1990.github.io/mph-thesis/)
 
 # Dedication {.unnumbered}
 
