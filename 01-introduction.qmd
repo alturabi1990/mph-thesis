@@ -10,14 +10,9 @@ execute:
   warning: false
   message: false
   eval: true
-#bibliography: ./references.bib
-bibliographystyle: vancouver.csl
+bibliography: references.bib
 link-bibliography: true
 link-citations: true
-#  docx:
-#    toc: true
-#    number_sections: true
-#    highlight-style: github
 ---
 
 # Introduction
@@ -62,13 +57,13 @@ To address these challenges, it is important to raise awareness among host commu
 
 Promoting social cohesion is crucial for sustainable development, peacebuilding efforts, and the overall stability of societies affected by internal displacement [@Kao2024]. Understanding the factors that contribute to positive interactions between IDPs and host communities will enable policymakers, humanitarian organizations, and local authorities to design targeted interventions that address the specific needs of both groups.
 
-The purpose of this research is to investigate the factors that contribute/hinder to social cohesion between internally displaced people (IDPs) and host communities. our study would contribute to identify effective strategies and interventions that can be implemented to address the specific needs and challenges faced in order to foster positive relationships, mutual understanding, and cooperation between these two groups. By investigating social cohesion & resilience, this research seeks to enhance the overall well-being and integration of IDPs within their host communities.
+The purpose of this research is to investigate the factors that contribute/hinder to social cohesion between internally displaced people (IDPs) and host communities. Our study would contribute to identify effective strategies and interventions that can be implemented to address the specific needs and challenges faced in order to foster positive relationships, mutual understanding, and cooperation between these two groups. By investigating social cohesion & resilience, this research seeks to enhance the overall well-being and integration of IDPs within their host communities.
 
 ## Study Objectives
 
 ### General objective
 
-To study the social cohesion and resilience between internally displaced people (IDPs) and host communities & the impact on wellbeing during armed conflict in Sudan 2024
+To study the social cohesion and resilience between internally displaced people (IDPs) and host communities & well-being during armed conflict in River Nile state, Sudan 2024
 
 ### Primary Specific Objectives
 
@@ -76,10 +71,6 @@ To study the social cohesion and resilience between internally displaced people 
 
 2.  To measure the level of resilience among IDPs in comparison to host communities.
 
-3.  To identify key factors (based on demographics, socioeconomic factors, length of displacement, etc.) that contribute to or hinder social cohesion and resilience.
+3.  To identify key factors (based on demographics, socio-economic factors, length of displacement, etc.) that contribute to or hinder social cohesion and resilience.
 
 4.  To assess the impact of social cohesion on the well-being of IDPs & the host community.
-
-### Secondary objectives
-
-5.  To provide recommendations for policies and interventions that promote social cohesion and resilience.
