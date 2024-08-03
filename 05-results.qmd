@@ -218,9 +218,9 @@ create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
 
 ```
 
-```{r, eval=TRUE}
-#| label: fig-income-plot
-#| fig-cap: Income Distribution Before and After Conflict Among IDPs and Host Community
+```{r, eval=FALSE, echo=FALSE}
+#| label: fig-income-plot-1
+#| fig-cap: Income Distribution Before and After Conflict Among IDPs and Host Communities
 
 
 # Load necessary libraries
@@ -278,6 +278,8 @@ violin_plot <- ggplot(data_long,
 print(violin_plot)
 
 ```
+
+![Income Distribution Before and After Conflict Among IDPs and Host Community](figures/fig-income-plot.png){#fig-income-plot fig-align="center"}
 
 ::: {#fig-sankey .figure}
 <iframe src="figures/sankey_plot_with_caption.html" width="100%" height="500px">
