@@ -1,9 +1,8 @@
 ---
-title: "Reproducibility"
 format: 
   html:
     theme: cosmo
-    code-fold: show
+  #  code-fold: show
 unnumbered: true
 editor: visual
 execute:
@@ -19,88 +18,37 @@ This section outlines the steps and resources needed to reproduce the analysis p
 
 ## Project Organization
 
-**The project is organized into the following directories:**
+**The project is organized into the following directories and files:**
 
 -   **index.qmd**: The main Quarto file for the thesis.
--   **chapters/**: Contains all chapter files, including this reproducibility section.
+-   **chapters**: all chapter files including the appendices are in root directory.
 -   **data/**: Directory for all datasets used in the analysis.
--   **scripts/**: Directory for R scripts used in the analysis.
+-   **\_extensions/**: for the output settings (html and pdf) formats
 -   **figures/**: Directory for all figures generated and used in the thesis.
--   **styles/**: Directory for custom styling files, such as CSS.
--   **bibliography/**: Directory for the bibliography file (`references.bib`).
-
-**Directory Structure:**
-
-```{mermaid}
-%%| fig-width: 5
-flowchart LR
-    A[my-mph-thesis] --> B[index.qmd]
-    A --> C[chapters/]
-    C --> C1[cover.qmd, dedication.qmd, acknowledgement.qmd,\n introduction.qmd, methods.qmd, reproducibility.qmd,\n results.qmd, discussion.qmd, conclusion.qmd]
-    A --> D[data/]
-    D --> D1[mydata.xlsx, cleaned_data.rds]
-    A --> E[scripts/]
-    E --> E1[analysis.R]
-    A --> F[figures/]
-    A --> G[styles/]
-    A --> H[references.bib]
-    G --> G1[custom-styles.css, custem-template.tex,\n custom-reference.docx]
-    A --> I[_quarto.yml]
-```
-
-```{mermaid}
-%%| fig-width: 5
-flowchart LR
-R[R Workflow] --> Rformat[Report formatting]
-Rformat --> Quarto[Quarto setup<br><br>Using metadata in<br>report output<br><br>Table and graph formatting]
-R --> DI[Data import] --> Annot[Annotate data<br><br>View data dictionary<br>to assist coding]
-R --> Do[Data overview] --> F[Observation filtration<br>Missing data patterns<br>Data about data]
-R --> P[Data processing] --> DP[Recode<br>Transform<br>Reshape<br>Merge<br>Aggregate<br>Manipulate]
-R --> Des[Descriptive statistics<br>Univariate or simple<br>stratification]
-R --> An[Analysis<br>Stay close to data] --> DA[Descriptive<br><br>Avoid tables by using<br>nonparametric smoothers] & FA[Formal]
-R --> CP[Caching<br>Parallel computing<br>Simulation]
-```
+-   **docs/**: Directory for the exported thesis.
+-   **references.bib, apa.csl**: bibliography file and style
+-   **README.qmd**: for guidance on this thesis project
+-   **\_quarto.yml**: for setting up the output quarto
 
 ## Data and Code Availability
 
 All data and code necessary to reproduce the analysis are provided within this repository:
 
--   **Data**: The dataset used for analysis is located in the `data/` directory (`dataset.csv`).
--   **Code**: The R script used for analysis is located in the `code/` directory (`analysis.R`).
+-   **Data**: The dataset used for analysis is located in the `data/` directory (cleaned_data.rds).
+-   **Code:** it is included inside the quarto files
 
 ### Data
 
-The data used in this thesis can be found in the `data/` directory. If the data is sourced from an external location, include the download instructions or link.
+The data used in this thesis can be found in the `data/` directory.
 
-```{r eval= FALSE}
+```{r eval= FALSE, echo=TRUE}
 # Example of loading the data
- data <- read.csv("data/mydata.csv")
+cleaned_data <- readRDS(here("data/cleaned_data.rds"))
 ```
 
 ### Code
 
-The R code for the analysis is included in the `code/` directory. The script `analysis.R` performs data cleaning, analysis, and visualization.
-
-```{r eval= FALSE}
-# Example of running the analysis
- source("scripts/analysis.R")
-```
-
-## Software and Libraries
-
-The analysis was conducted using R (version X.X.X) and the following libraries:
-
--   **dplyr** (version X.X.X)
-
--   **ggplot2** (version X.X.X)
-
--   **\[Other Libraries\]**
-
-To install these packages, run:
-
-```{r eval= FALSE}
- install.packages(c("dplyr", "ggplot2", "[Other Libraries]"))
-```
+The R code for the analysis is included inside the quarto files. It performs data cleaning, analysis, and visualization.
 
 ## Steps to Reproduce
 
@@ -108,32 +56,34 @@ Follow these steps to reproduce the analysis:
 
 1.  **Clone the Repository:**
 
-```{bash eval= FALSE}
+```{bash eval= FALSE, echo=TRUE}
 
-git clone <repository-url>
+git clone https://github.com/alturabi1990/mph-thesis.git
 
-cd my-mph-thesis
-
-```
-
-1.  **Install Required Libraries:**
-
-```{r eval= FALSE}
- install.packages(c("dplyr", "ggplot2", "[Other Libraries]"))
+cd mph-thesis
 
 ```
 
-3.  **Run the Analysis:**
+2.  **Install Required Libraries:**
 
-```{r eval= FALSE}
-source("code/analysis.R")
+```{r eval= FALSE, echo=TRUE}
+ install.packages(c(
+  "here",        # For creating relative file paths
+  "dplyr",       # For data manipulation (filtering, selecting, mutating, etc.)
+  "tidyr",       # For tidying data (reshaping, pivoting, etc.)
+  "Hmisc",       # For additional data manipulation functions and labeling
+  "ggplot2",     # For data visualization
+  "gt",          # For creating 'gt' tables
+  "gtsummary",   # For generating summary tables (e.g., descriptive statistics)
+  "gtExtras"     # For extending 'gt' tables with additional features
+))
 
 ```
 
-4.  **Render the Quarto Document:**
+3.  **Analysis & Render the Quarto Document:**
 
-```{bash eval= FALSE}
- quarto render
+```{bash eval= FALSE, echo=TRUE}
+ quarto render "index.qmd"
 
 ```
 
@@ -145,7 +95,7 @@ The project is managed using Git for version control. This allows tracking of ch
 
 If you haven't already initialized a Git repository, you can do so with the following commands:
 
-```{bash eval= FALSE}
+```{bash eval= FALSE, echo=TRUE}
 # Initialize a git repository
  git init
 
@@ -156,7 +106,7 @@ If you haven't already initialized a Git repository, you can do so with the foll
  git commit -m "Initial commit"
 
 # Add a remote repository
- git remote add origin <repository-url>
+ git remote add origin https://github.com/alturabi1990/mph-thesis.git
 
 # Push the changes
  git push -u origin master
@@ -167,7 +117,7 @@ If you haven't already initialized a Git repository, you can do so with the foll
 
 As you make changes to your project, commit these changes regularly:
 
-```{bash eval= FALSE}
+```{bash eval= FALSE, echo=TRUE}
 # Add changes to the staging area
 git add .
 
@@ -180,20 +130,53 @@ git commit -m "Description of the changes made"
 
 After committing your changes, push them to your remote repository:
 
-```{bash eval= FALSE}
+```{bash eval= FALSE, echo=TRUE}
 
 git push origin master
 
 ```
 
-## Session Information
+## Software and Libraries
 
-```{r sessioninfo, eval = TRUE, include = TRUE}
+```{r, eval=TRUE, echo=FALSE}
+# Load necessary library
+library(sessioninfo)
 
+# Define the specific packages you used
+used_packages <- c(
+  "here",        # For creating relative file paths
+  "dplyr",       # For data manipulation (filtering, selecting, mutating, etc.)
+  "tidyr",       # For tidying data (reshaping, pivoting, etc.)
+  "Hmisc",       # For additional data manipulation functions and labeling
+  "ggplot2",     # For data visualization
+  "gt",          # For creating 'gt' tables
+  "gtsummary",   # For generating summary tables (e.g., descriptive statistics)
+  "gtExtras"     # For extending 'gt' tables with additional features
+)
 
- sessioninfo::session_info()
+# Load each package to ensure it's available
+invisible(sapply(used_packages, require, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE))
+
+# Get R version
+r_version <- R.version$version.string
+
+# Get package versions for only the specified packages
+package_versions <- session_info()$packages
+filtered_packages <- package_versions[package_versions$package %in% used_packages, c("package", "loadedversion")]
+
+```
+
+```{r, eval=TRUE}
+# Print the R version
+cat("The analysis was conducted using", r_version, "\n", "and the following libraries:\n\n")
+
+# Print each package and its version
+for (i in seq_len(nrow(filtered_packages))) {
+  cat(filtered_packages$package[i], "(version", filtered_packages$loadedversion[i], ")\n")
+}
+
 ```
 
 ## Additional Information
 
-For more detailed instructions on specific parts of the analysis or troubleshooting common issues, please refer to the `README.md` file in the root of the repository.
+For more detailed instructions on specific parts of the analysis or troubleshooting common issues, please refer to the `README.qmd` file in the root of the repository.
