@@ -6,25 +6,17 @@ unnumbered: true
 
 # Appendices {.unnumbered}
 
-## Annex (1): {#sec-annex1}
+## Annex (1): {#sec-annex1 .annex-1}
 
 ![Ethical Approval from IUA IRB](figures/ethical_approval_iua.png){#fig-ethical-approval-iua fig-align="center"}
 
-@fig-ethical-approval-iua
-
 ![Ethical Approval from State Ministry of Health \_ River Nile](figures/ethical_approval_smoh_river-nile.png){#fig-ethical-approval-smoh fig-align="center"}
-
-@fig-ethical-approval-smoh
 
 ## Annex (2): {#sec-annex2}
 
 ![Gatekeeper Permission's- Elmatema Locality](figures/permission_matema.png){#fig-permission fig-align="center"}
 
-@fig-permission
-
 ## Annex (3) {#sec-annex3}
-
-@fig-questionnaire
 
 ![](figures/questionnaire1.png){#fig-questionnaire fig-align="center"}
 
