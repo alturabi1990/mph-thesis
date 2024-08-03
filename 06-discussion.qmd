@@ -1,7 +1,4 @@
 ---
-title: "Discussion"
-author: "Elhami A.A. Ahmed"
-date: "2024"
 format: 
   html:
     toc: true
@@ -17,6 +14,8 @@ execute:
 #    number_sections: true
 #    highlight-style: github
 ---
+
+# Discussion
 
 ## Socio-economic Characteristics
 
