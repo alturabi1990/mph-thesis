@@ -27,11 +27,14 @@ contributes:
       - right=2.5cm
       block-headings: true
       colorlinks: true
+      lof: true
+      lot: true
       linestretch: 1.5
       template-partials:
         - "before-title.tex"
         - "title.tex"
     html:
+      code-tools: true
       output-dir: ./docs
       #self-contained: true
       #embed-resources: true
