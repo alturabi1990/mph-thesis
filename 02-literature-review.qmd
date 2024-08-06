@@ -32,7 +32,7 @@ Social cohesion involves shared values, norms, and beliefs, fostering a sense of
 
 **Social Cohesion and Resilience** Social cohesion and resilience are interconnected in a reciprocal relationship, as strong social cohesion can enhance a community's ability to withstand adversity and bounce back from setbacks, while resilience can strengthen bonds and reinforce a sense of collective identity. Communities with high levels of social cohesion and resilience are better equipped to address social issues, promote positive mental health outcomes, and facilitate effective collaboration towards common goals. Fostering social cohesion and resilience can also reduce instances of social isolation and loneliness, lower crime and violence rates, and increase civic engagement and participation in local decision-making processes [@moustakas2023].
 
-## Components and Dimensions of Social Cohesion & Resilience 
+## Components and Dimensions of Social Cohesion & Resilience
 
 **They vary slightly in the reported published literature:**
 
@@ -60,7 +60,7 @@ Community members describe trust building as the most important precondition for
 
 These components and dimensions of social cohesion and resilience contribute to the overall strength and resilience of communities, fostering a sense of unity, cooperation, and well-being.
 
-## **Building Social Cohesion and Resilience among IDPs and Host Communities** 
+## Building Social Cohesion and Resilience among IDPs and Host Communities
 
 Social cohesion and resilience between internally displaced persons (IDPs) and host communities are crucial for sustainable integration and harmony. Fostering mutual understanding and cooperation through community engagement initiatives can bridge the gap between IDPs and host communities, promoting long-term stability and peaceful coexistence. Research indicates that social capital, including trust, interaction, and networks, plays a significant role in building resilience among displaced women by reducing poverty, increasing empowerment, and decreasing violence. Approaches to enhance social cohesion involve providing basic services without limiting the host community, economic integration, and support services for local integration. IDPs demonstrate resilience by establishing internal camp management structures, advocating for their needs, and fostering supportive communal relationships, showcasing their active role in adaptation and development [@bulbulsiddiqi2022].
 
