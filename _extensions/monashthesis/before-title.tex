@@ -1,125 +1,122 @@
 %% CAPTIONS
-\usepackage{caption}
-\DeclareCaptionStyle{italic}[justification=centering]
- {labelfont={bf},textfont={it},labelsep=colon}
-\captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}
-\captionsetup[table]{style=italic,format=hang,singlelinecheck=true}
+\usepackage{caption}  % Load the caption package to customize figure and table captions.
+\DeclareCaptionStyle{italic}[justification=centering] % Define a caption style that centers the text and uses italic font.
+ {labelfont={bf},textfont={it},labelsep=colon}  % Set bold font for labels, italic font for text, and use a colon as a separator.
+\captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}  % Apply the italic style to figure captions, with hanging indentation and single-line checks.
+\captionsetup[table]{style=italic,format=hang,singlelinecheck=true}  % Apply the same settings to table captions.
 
 %% FONT
-\usepackage{bera}
-\usepackage[charter]{mathdesign}
-\usepackage[scale=0.9]{sourcecodepro}
-\usepackage[lf,t]{FiraSans}
-\usepackage{fontawesome}
+\usepackage{bera}  % Load the Bera font, used for sans-serif text.
+\usepackage[charter]{mathdesign}  % Use the Charter font for text and math symbols.
+\usepackage[scale=0.9]{sourcecodepro}  % Load Source Code Pro font for monospace text, scaled down to 90%.
+\usepackage[lf,t]{FiraSans}  % Use Fira Sans font for sans-serif text with lining figures and tabular alignment.
+\usepackage{fontawesome}  % Load the FontAwesome icons for use in the document.
 
 %% HEADERS AND FOOTERS
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\rfoot{\Large\sffamily\raisebox{-0.1cm}{\textbf{\thepage}}}
-\makeatletter
-\lhead{\textsf{\expandafter{\@title}}}
-\makeatother
-\rhead{}
-\cfoot{}
-\setlength{\headheight}{15pt}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\fancypagestyle{plain}{%
-\fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\sffamily\thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+\usepackage{fancyhdr}  % Load the fancyhdr package to customize headers and footers.
+\pagestyle{fancy}  % Apply a fancy page style to the entire document.
+\rfoot{\Large\sffamily\raisebox{-0.1cm}{\textbf{\thepage}}}  % Set the right footer to show the page number in large sans-serif text.
+\makeatletter  % Begin a LaTeX programming section.
+\lhead{\textsf{\expandafter{\@title}}}  % Set the left header to the document title in sans-serif text.
+\makeatother  % End the LaTeX programming section.
+\rhead{}  % Clear the right header.
+\cfoot{}  % Clear the center footer.
+\setlength{\headheight}{15pt}  % Set the height of the header to 15pt.
+\renewcommand{\headrulewidth}{0.4pt}  % Set the thickness of the header rule (line) to 0.4pt.
+\renewcommand{\footrulewidth}{0.4pt}  % Set the thickness of the footer rule to 0.4pt.
+\fancypagestyle{plain}{%  % Define a fancy page style for plain pages (e.g., chapter start pages).
+\fancyhf{} % Clear all header and footer fields.
+\fancyfoot[C]{\sffamily\thepage} % Set the center footer to the page number in sans-serif text.
+\renewcommand{\headrulewidth}{0pt}  % Remove the header rule for plain pages.
+\renewcommand{\footrulewidth}{0pt}}  % Remove the footer rule for plain pages.
 
 %% MATHS
-\usepackage{bm,amsmath}
-\allowdisplaybreaks
+\usepackage{bm,amsmath}  % Load packages for bold math symbols and advanced math formatting.
+\allowdisplaybreaks  % Allow page breaks in multi-line equations.
 
 %% GRAPHICS
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setcounter{topnumber}{2}
-\setcounter{bottomnumber}{2}
-\setcounter{totalnumber}{4}
-\renewcommand{\topfraction}{0.85}
-\renewcommand{\bottomfraction}{0.85}
-\renewcommand{\textfraction}{0.15}
-\renewcommand{\floatpagefraction}{0.8}
-\graphicspath{{figures/}}
+\makeatletter  % Begin a LaTeX programming section.
+\def\fps@figure{htbp}  % Set the default figure placement to here, top, bottom, or page.
+\makeatother  % End the LaTeX programming section.
+\setcounter{topnumber}{2}  % Allow up to 2 floats at the top of a page.
+\setcounter{bottomnumber}{2}  % Allow up to 2 floats at the bottom of a page.
+\setcounter{totalnumber}{4}  % Allow up to 4 floats per page.
+\renewcommand{\topfraction}{0.85}  % Allow floats to take up to 85% of the top of the page.
+\renewcommand{\bottomfraction}{0.85}  % Allow floats to take up to 85% of the bottom of the page.
+\renewcommand{\textfraction}{0.15}  % Require at least 15% of a page to be text (not floats).
+\renewcommand{\floatpagefraction}{0.8}  % Allow floats to occupy up to 80% of a float-only page.
+\graphicspath{{figures/}}  % Set the directory path for graphics files.
 
 %% SECTION TITLES
-\usepackage[compact,sf,bf]{titlesec}
-\titleformat*{\section}{\Large\sf\bfseries}
-\titleformat*{\subsection}{\large\sf\bfseries}
-\titleformat*{\subsubsection}{\sf\bfseries}
-\titlespacing{\section}{0pt}{*5}{*1}
-\titlespacing{\subsection}{0pt}{*2}{*0.2}
-\titlespacing{\subsubsection}{0pt}{*1}{*0.1}
+\usepackage[compact,sf,bf]{titlesec}  % Load the titlesec package with compact, sans-serif, and bold section title styles.
+\titleformat*{\section}{\Large\sf\bfseries}  % Set the format for \section titles to large, sans-serif, and bold.
+\titleformat*{\subsection}{\large\sf\bfseries}  % Set the format for \subsection titles to large, sans-serif, and bold.
+\titleformat*{\subsubsection}{\sf\bfseries}  % Set the format for \subsubsection titles to sans-serif and bold.
+\titlespacing{\section}{0pt}{*5}{*1}  % Set section title spacing: no indent, 5 lines before, 1 line after.
+\titlespacing{\subsection}{0pt}{*2}{*0.2}  % Set subsection title spacing: no indent, 2 lines before, 0.2 lines after.
+\titlespacing{\subsubsection}{0pt}{*1}{*0.1}  % Set subsubsection title spacing: no indent, 1 line before, 0.1 lines after.
 
 %% TABLES
-\usepackage{booktabs,tabu}
-\usepackage{graphicx} % For \resizebox
-\usepackage{tabularx} % For automatically adjusting column widths
+\usepackage{booktabs,tabu}  % Load the booktabs and tabu packages for advanced table formatting.
+\usepackage{graphicx}  % Load the graphicx package to include graphics and resize boxes.
+\usepackage{tabularx}  % Load the tabularx package for tables with automatically adjusting column widths.
 
 % Custom table environment to automatically resize tables
-\newenvironment{resizetable}
-  {\begin{table}\resizebox{\textwidth}{!}{\begin{tabular}}
-  {\end{tabular}}\end{table}}
+\newenvironment{resizetable}  % Define a new environment called resizetable.
+  {\begin{table}\resizebox{\textwidth}{!}{\begin{tabular}}  % Start a table and resize it to fit the text width.
+  {\end{tabular}}\end{table}}  % End the tabular environment and table.
 
 % Custom tabular environment that uses tabularx
-\newenvironment{xtable}
-  {\begin{table}\centering\begin{tabularx}{\textwidth}{lXX}} % Adjust column specifier as needed
-  {\end{tabularx}\end{table}}
+\newenvironment{xtable}  % Define a new environment called xtable.
+  {\begin{table}\centering\begin{tabularx}{\textwidth}{lXX}} % Start a table, centered, with lXX columns in tabularx.
+  {\end{tabularx}\end{table}}  % End the tabularx environment and table.
 
 %% BIBLIOGRAPHY.
-
-\makeatletter
-\@ifpackageloaded{biblatex}{
-\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}
-\DeclareFieldFormat{url}{\texttt{\url{#1}}}
-\DeclareFieldFormat[article]{pages}{#1}
-\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
-\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
-\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
-\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
-\DeclareFieldFormat[article]{url}{}
-\DeclareFieldFormat[inproceedings]{title}{#1}
-\DeclareFieldFormat{shorthandwidth}{#1}
-\usepackage{xpatch}
-\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+\makeatletter  % Begin a LaTeX programming section.
+\@ifpackageloaded{biblatex}{  % Check if the biblatex package is loaded.
+\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}  % Set various bibliography options.
+\DeclareFieldFormat{url}{\texttt{\url{#1}}}  % Format URLs as monospace text with the \url command.
+\DeclareFieldFormat[article]{pages}{#1}  % Format page numbers in articles.
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}  % Format page ranges in proceedings with lowercase "pp.".
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}  % Format page ranges in collections with lowercase "pp.".
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}  % Format volume numbers in articles as bold.
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}  % Format issue numbers in articles in parentheses.
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}  % Capitalize the first word of article titles.
+\DeclareFieldFormat[article]{url}{}  % Remove URLs from article references.
+\DeclareFieldFormat[inproceedings]{title}{#1}  % Format titles in proceedings.
+\DeclareFieldFormat{shorthandwidth}{#1}  % Set the width for shorthand entries.
+\usepackage{xpatch}  % Load the xpatch package for patching LaTeX commands.
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}  % Patch the bibliography macro to remove the dot after the volume+number+eid unit.
 % Remove In: for an article.
-\renewbibmacro{in:}{%
+\renewbibmacro{in:}{%  % Redefine the "in:" macro.
   \ifentrytype{article}{}{%
-  \printtext{\bibstring{in}\intitlepunct}}}
-\AtEveryBibitem{\clearfield{month}}
-\AtEveryCitekey{\clearfield{month}}
-\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
-\renewcommand*{\finalnamedelim}{\addspace\&\space}
-}{}
-\makeatother
+  \printtext{\bibstring{in}\intitlepunct}}}  % If the entry is not an article, print "In:" followed by the title punctuation.
+\AtEveryBibitem{\clearfield{month}}  % Clear the month field from all bibliography items.
+\AtEveryCitekey{\clearfield{month}}  % Clear the month field from all citations.
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}  % Define a delimiter format for name-year citations.
+\renewcommand*{\finalnamedelim}{\addspace\&\space}  % Use " & " as the final name delimiter in citations.
+}{}  % End the conditional check for biblatex.
+\makeatother  % End the LaTeX programming section.
 
-
+% HYPERLINK SETTINGS
 \hypersetup{
-     pdfcreator={Quarto -> pandoc -> LaTeX -> pdf}
+     pdfcreator={Quarto -> pandoc -> LaTeX -> pdf}  % Set metadata for PDF creation.
 }
-
 
 %% PAGE BREAKING to avoid widows and orphans
-\clubpenalty = 2000
-\widowpenalty = 2000
-\usepackage{microtype}
-
-
-
+\clubpenalty = 2000  % Increase the penalty for breaking a page after the first line of a paragraph (widows).
+\widowpenalty = 2000  % Increase the penalty for breaking a page before the last line of a paragraph (orphans).
+\usepackage{microtype}  % Load the microtype package for better typographic quality.
 
 % Custom command for inserting a centered title page
-\newcommand{\insertchaptertitlepage}[1]{
-  \clearpage
-  \begin{titlepage}
-    \centering
-    \vspace*{\fill}
-    {\Huge\bfseries #1\par}
-    \vspace*{\fill}
-  \end{titlepage}
+\newcommand{\insertchaptertitlepage}[1]{  % Define a new command for inserting a title page.
+  \clearpage  % Start a new page.
+  \begin{titlepage}  % Begin the title page environment.
+    \centering  % Center all content on the title page.
+    \vspace*{\fill}  % Add vertical space before the title.
+    {\Huge\bfseries #1\par}  % Print the title in huge, bold font.
+    \vspace*{\fill}  % Add vertical space after the title.
+  \end{titlepage}  % End the title page environment.
 }
+
+
