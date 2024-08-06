@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -201,7 +235,7 @@ div.csl-indent {
   <li><a href="#definitions-causes-and-consequences-of-social-cohesion" id="toc-definitions-causes-and-consequences-of-social-cohesion" class="nav-link active" data-scroll-target="#definitions-causes-and-consequences-of-social-cohesion"><span class="header-section-number">2.1</span> Definitions, Causes, and Consequences of Social Cohesion</a></li>
   <li><a href="#social-cohesion-dynamics-in-refugee-and-host-community-contexts" id="toc-social-cohesion-dynamics-in-refugee-and-host-community-contexts" class="nav-link" data-scroll-target="#social-cohesion-dynamics-in-refugee-and-host-community-contexts"><span class="header-section-number">2.2</span> Social Cohesion Dynamics in Refugee and Host Community Contexts</a></li>
   <li><a href="#components-and-dimensions-of-social-cohesion-resilience" id="toc-components-and-dimensions-of-social-cohesion-resilience" class="nav-link" data-scroll-target="#components-and-dimensions-of-social-cohesion-resilience"><span class="header-section-number">2.3</span> Components and Dimensions of Social Cohesion &amp; Resilience</a></li>
-  <li><a href="#building-social-cohesion-and-resilience-among-idps-and-host-communities" id="toc-building-social-cohesion-and-resilience-among-idps-and-host-communities" class="nav-link" data-scroll-target="#building-social-cohesion-and-resilience-among-idps-and-host-communities"><span class="header-section-number">2.4</span> <strong>Building Social Cohesion and Resilience among IDPs and Host Communities</strong></a></li>
+  <li><a href="#building-social-cohesion-and-resilience-among-idps-and-host-communities" id="toc-building-social-cohesion-and-resilience-among-idps-and-host-communities" class="nav-link" data-scroll-target="#building-social-cohesion-and-resilience-among-idps-and-host-communities"><span class="header-section-number">2.4</span> Building Social Cohesion and Resilience among IDPs and Host Communities</a></li>
   </ul>
 </nav>
     </div>
@@ -210,7 +244,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review &amp; Previous Studies</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Review &amp; Previous Studies</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -255,12 +289,14 @@ div.csl-indent {
 <p>These components and dimensions of social cohesion and resilience contribute to the overall strength and resilience of communities, fostering a sense of unity, cooperation, and well-being.</p>
 </section>
 <section id="building-social-cohesion-and-resilience-among-idps-and-host-communities" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="building-social-cohesion-and-resilience-among-idps-and-host-communities"><span class="header-section-number">2.4</span> <strong>Building Social Cohesion and Resilience among IDPs and Host Communities</strong></h2>
+<h2 data-number="2.4" class="anchored" data-anchor-id="building-social-cohesion-and-resilience-among-idps-and-host-communities"><span class="header-section-number">2.4</span> Building Social Cohesion and Resilience among IDPs and Host Communities</h2>
 <p>Social cohesion and resilience between internally displaced persons (IDPs) and host communities are crucial for sustainable integration and harmony. Fostering mutual understanding and cooperation through community engagement initiatives can bridge the gap between IDPs and host communities, promoting long-term stability and peaceful coexistence. Research indicates that social capital, including trust, interaction, and networks, plays a significant role in building resilience among displaced women by reducing poverty, increasing empowerment, and decreasing violence. Approaches to enhance social cohesion involve providing basic services without limiting the host community, economic integration, and support services for local integration. IDPs demonstrate resilience by establishing internal camp management structures, advocating for their needs, and fostering supportive communal relationships, showcasing their active role in adaptation and development <span class="citation" data-cites="bulbulsiddiqi2022">(<a href="refs.html#ref-bulbulsiddiqi2022" role="doc-biblioref">Bulbul Siddiqi, 2022</a>)</span>.</p>
 <p><strong>Consequences of High Levels of Social Cohesion</strong> High levels of social cohesion are linked to numerous positive outcomes, such as environmental sustainability, social stability, improved health, and effective responses to societal challenges like the COVID-19 pandemic. Social cohesion fosters a sense of community, cooperation, trust, and solidarity among society’s members. Communities with high social cohesion levels are likely to experience lower conflict, crime rates, and social unrest, leading to overall well-being and resilience <span class="citation" data-cites="moustakas2023">(<a href="refs.html#ref-moustakas2023" role="doc-biblioref">Moustakas, 2023</a>)</span>.</p>
 <p><strong>Challenges in Refugee Management: The Case of the Rohingya in Bangladesh</strong> Research on social cohesion between the Rohingya and host communities in Bangladesh highlights several critical issues <span class="citation" data-cites="bulbulsiddiqi2022">(<a href="refs.html#ref-bulbulsiddiqi2022" role="doc-biblioref">Bulbul Siddiqi, 2022</a>)</span>. The lack of a comprehensive refugee policy and the ad-hoc approach taken by the Bangladeshi government have hindered efforts to prioritize social cohesion. Negative perceptions and social tensions have increased among neighboring host communities towards the Rohingya, fueled by concerns about anti-social and unlawful activities attributed to the influx of refugees. Over the past four years, there has been a significant decline in the sympathetic attitude of the host community towards the Rohingya, straining relationships and hindering efforts towards social cohesion <span class="citation" data-cites="bulbulsiddiqi2022">(<a href="refs.html#ref-bulbulsiddiqi2022" role="doc-biblioref">Bulbul Siddiqi, 2022</a>)</span>.</p>
 <p><strong>Efforts to Address Social Cohesion Challenges</strong> Efforts to address social cohesion challenges in the Rohingya crisis in Bangladesh have included initiatives focused on promoting inter-community dialogue, enhancing economic opportunities for both IDPs and host communities, and fostering mutual understanding through cultural exchange programs. These initiatives aim to bridge the gap between the displaced population and the host communities, creating a more inclusive and harmonious environment. Community-based projects, such as joint infrastructure development and shared resource management, have proven effective in fostering collaboration and building trust among the different groups affected by the crisis. These collaborative efforts have not only improved living conditions for both IDPs and host communities but also laid the foundation for long-term peacebuilding and social cohesion in the region <span class="citation" data-cites="bulbulsiddiqi2022">(<a href="refs.html#ref-bulbulsiddiqi2022" role="doc-biblioref">Bulbul Siddiqi, 2022</a>)</span>.</p>
 
+
+<!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-bulbulsiddiqi2022" class="csl-entry" role="listitem">
@@ -380,6 +416,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -722,7 +809,79 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Materials and Methods</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: true</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  docx:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    toc: true</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    number_sections: true</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#    highlight-style: github</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># Literature Review &amp; Previous Studies</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Definitions, Causes, and Consequences of Social Cohesion</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>**Definition of Social Cohesion** Social cohesion is a vital element of a peaceful and resilient society, especially in the context of increasing forced migration worldwide <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>. It is characterized by positive social relations, a sense of belonging, and an orientation towards the common good <span class="co">[</span><span class="ot">@moustakas2023</span><span class="co">]</span>. Despite its importance, the concept lacks a universally accepted definition, creating ambiguity among NGOs working in refugee contexts. Guay (2016) offers a relevant definition, describing social cohesion as “the set of relationships between individuals and groups in a particular environment and between those individuals and groups and the institutions that govern them” <span class="co">[</span><span class="ot">@socialc2023</span><span class="co">]</span>.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Social cohesion involves shared values, norms, and beliefs, fostering a sense of belonging and unity within a community. This interconnectedness strengthens interpersonal relationships and promotes a collective identity that transcends individual differences, paving the way for inclusive and harmonious coexistence among diverse groups. This sense of belonging and unity is essential for creating a supportive environment where individuals feel connected and valued, leading to increased overall well-being and resilience <span class="co">[</span><span class="ot">@moustakas2023</span><span class="co">]</span>.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>**Causes of Social Cohesion** Several factors influence social cohesion in different societal contexts. Inequality, particularly income inequality, is a significant cause that negatively impacts social cohesion. Institutions and governance play a crucial role in fostering social cohesion by emphasizing well-being, social participation, tolerance, and equal opportunities. The human capital accumulation theory suggests that inequality hinders educational opportunities for disadvantaged individuals, affecting their social mobility and, consequently, social cohesion <span class="co">[</span><span class="ot">@moustakas2023</span><span class="co">]</span>.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Social Cohesion Dynamics in Refugee and Host Community Contexts</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**Importance of Social Interaction** Social interaction between the host and Rohingya communities is critical in fostering a cohesive relationship. Increased positive interactions can help bridge divides and build understanding. Emphasizing the importance of social interaction is a key factor in fostering a cohesive relationship between the host and Rohingya communities, highlighting the need for initiatives that promote mutual respect and peaceful coexistence <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**Social Cohesion and Resilience** Social cohesion and resilience are interconnected in a reciprocal relationship, as strong social cohesion can enhance a community's ability to withstand adversity and bounce back from setbacks, while resilience can strengthen bonds and reinforce a sense of collective identity. Communities with high levels of social cohesion and resilience are better equipped to address social issues, promote positive mental health outcomes, and facilitate effective collaboration towards common goals. Fostering social cohesion and resilience can also reduce instances of social isolation and loneliness, lower crime and violence rates, and increase civic engagement and participation in local decision-making processes <span class="co">[</span><span class="ot">@moustakas2023</span><span class="co">]</span>.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Components and Dimensions of Social Cohesion &amp; Resilience</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>**They vary slightly in the reported published literature:**</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>**1. Trust:** Trust is an essential component of social cohesion. It refers to the belief and confidence that individuals and groups have in each other and in institutions <span class="co">[</span><span class="ot">@delhey2018</span><span class="co">]</span>. Trust is built through positive social interactions, shared values, and a sense of reliability and fairness, which can facilitate cooperation, mutual support, and collective action <span class="co">[</span><span class="ot">@schiefer2017</span><span class="co">]</span>.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Community members describe trust building as the most important precondition for the various components of society to be in solidarity and support each other. What trust building means varies from individual to individual and, to a certain extent, from area to area. Other necessary social cohesion actions are: promoting the spirit of tolerance, social interaction, making communities more homogeneous (ethno-religiously) and sensitizing community leaders <span class="co">[</span><span class="ot">@socialc2023</span><span class="co">]</span>.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>**2. Inclusive identity and Belonging:** Inclusive identity refers to a sense of belonging and attachment to a social group or community. It involves recognizing and valuing diversity (cultural, ethnic, and religious) while fostering a shared sense of identity and common values <span class="co">[</span><span class="ot">@delhey2018; @schiefer2017</span><span class="co">]</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**3. Social Integration and Inclusion:** Social cohesion is enhanced when IDPs are integrated into host communities, rather than being isolated or marginalized. This involves ensuring equal access to essential services, education, healthcare, employment opportunities, and participation in decision-making processes <span class="co">[</span><span class="ot">@socialcohesion2018</span><span class="co">]</span>.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**4. Cooperation for** **shared goals:** Cooperation for the common good refers to individuals and groups working together towards shared goals and collective well-being. It involves collaboration, solidarity, and a willingness to contribute to the betterment of society <span class="co">[</span><span class="ot">@delhey2018</span><span class="co">]</span>.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**5. Social relations:** Social relations encompass the quality and strength of interpersonal connections and networks within a community. This includes strong social networks, supportive relationships, and a sense of community belonging <span class="co">[</span><span class="ot">@schiefer2017</span><span class="co">]</span>.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**5. Participation:** Participation refers to the active engagement of individuals and groups in public life and decision-making processes. It involves having a voice, being included, and having opportunities to contribute to social, economic, and political activities.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>**6. Connectedness:** Connectedness refers to the level of interconnectedness and interdependence among individuals and groups within a society. It encompasses a sense of solidarity, shared values, and a recognition of the interrelationships between different social groups. This can be found in terms of joint community projects, income-generation activities, and initiatives that foster collaboration and interdependence <span class="co">[</span><span class="ot">@schiefer2017</span><span class="co">]</span>.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**7. Conflict Resolution and Reconciliation:** Addressing conflicts and promoting reconciliation is vital for social cohesion and resilience. This includes promoting dialogue, mediation, and peacebuilding initiatives to resolve tensions and heal divisions arising from displacement <span class="co">[</span><span class="ot">@socialcohesion2018</span><span class="co">]</span>.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**8. Resilience and Coping Mechanisms:** Promoting resilience involves strengthening the capacity of IDPs and host communities to withstand and recover from shocks or stresses. This includes supporting social support systems, providing psychosocial services, and fostering adaptive strategies for communities to cope with challenges <span class="co">[</span><span class="ot">@macisaac2023</span><span class="co">]</span>.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**9. Communication and Information Sharing:** Effective communication channels and information sharing platforms facilitate understanding and promote cohesion between IDPs and host communities. This includes ensuring transparent and inclusive communication to address grievances, disseminate relevant information, and promote dialogue <span class="co">[</span><span class="ot">@jenson2010</span><span class="co">]</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>These components and dimensions of social cohesion and resilience contribute to the overall strength and resilience of communities, fostering a sense of unity, cooperation, and well-being.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Building Social Cohesion and Resilience among IDPs and Host Communities</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Social cohesion and resilience between internally displaced persons (IDPs) and host communities are crucial for sustainable integration and harmony. Fostering mutual understanding and cooperation through community engagement initiatives can bridge the gap between IDPs and host communities, promoting long-term stability and peaceful coexistence. Research indicates that social capital, including trust, interaction, and networks, plays a significant role in building resilience among displaced women by reducing poverty, increasing empowerment, and decreasing violence. Approaches to enhance social cohesion involve providing basic services without limiting the host community, economic integration, and support services for local integration. IDPs demonstrate resilience by establishing internal camp management structures, advocating for their needs, and fostering supportive communal relationships, showcasing their active role in adaptation and development <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**Consequences of High Levels of Social Cohesion** High levels of social cohesion are linked to numerous positive outcomes, such as environmental sustainability, social stability, improved health, and effective responses to societal challenges like the COVID-19 pandemic. Social cohesion fosters a sense of community, cooperation, trust, and solidarity among society's members. Communities with high social cohesion levels are likely to experience lower conflict, crime rates, and social unrest, leading to overall well-being and resilience <span class="co">[</span><span class="ot">@moustakas2023</span><span class="co">]</span>.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**Challenges in Refugee Management: The Case of the Rohingya in Bangladesh** Research on social cohesion between the Rohingya and host communities in Bangladesh highlights several critical issues <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>. The lack of a comprehensive refugee policy and the ad-hoc approach taken by the Bangladeshi government have hindered efforts to prioritize social cohesion. Negative perceptions and social tensions have increased among neighboring host communities towards the Rohingya, fueled by concerns about anti-social and unlawful activities attributed to the influx of refugees. Over the past four years, there has been a significant decline in the sympathetic attitude of the host community towards the Rohingya, straining relationships and hindering efforts towards social cohesion <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**Efforts to Address Social Cohesion Challenges** Efforts to address social cohesion challenges in the Rohingya crisis in Bangladesh have included initiatives focused on promoting inter-community dialogue, enhancing economic opportunities for both IDPs and host communities, and fostering mutual understanding through cultural exchange programs. These initiatives aim to bridge the gap between the displaced population and the host communities, creating a more inclusive and harmonious environment. Community-based projects, such as joint infrastructure development and shared resource management, have proven effective in fostering collaboration and building trust among the different groups affected by the crisis. These collaborative efforts have not only improved living conditions for both IDPs and host communities but also laid the foundation for long-term peacebuilding and social cohesion in the region <span class="co">[</span><span class="ot">@bulbulsiddiqi2022</span><span class="co">]</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
