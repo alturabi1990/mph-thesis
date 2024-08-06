@@ -10,10 +10,6 @@ execute:
   warning: false
   message: false
   eval: true
-#  docx:
-#    toc: true
-#    number_sections: true
-#    highlight-style: github
 ---
 
 # Materials and Methods
@@ -137,7 +133,7 @@ Collected data was securely stored and accessible only to authorized researchers
 %%| label: fig-mermaid-flowchart
 %%| fig-cap: FlowChart for the Project Implementation Phases
 %%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%
-%%| fig-width: 6
+%%| fig-width: 5
 flowchart LR
 imp[Import]
 rec[Recode]
@@ -178,13 +174,13 @@ A tentative timeline for the various stages of your research, including data col
 
 ```{mermaid}
 %%| label: fig-mermaid-gantt
-%%| fig-cap: Gantt's Chart for the Project Timeline
+%%| fig-cap: Gantt's Chart for the Project Timeline in 2024
 %%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%
 
 gantt
     title Research Project Timeline
     dateFormat YYYY-MM
-    axisFormat %d-%b-%Y
+    axisFormat %d-%b
     
     section Preparation phase
     Research protocol: a1, 2024-05-01, 14d
@@ -197,5 +193,5 @@ gantt
     
     section Dissimination phase
      Writing the report: crit, 2024-07-01, 14d
-     Thesis Defence: 2024-07-15, 14d
+     Thesis Defence: 2024-07-15, 2024-08-05
 ```
