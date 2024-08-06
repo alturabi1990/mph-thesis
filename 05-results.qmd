@@ -11,12 +11,6 @@ execute:
   warning: false
   message: false
   eval: true
-#  docx:
-#    toc: true
-#    number_sections: true
-#    highlight-style: github
-
-bibliography: references.bib
 ---
 
 # Results
@@ -42,7 +36,7 @@ cleaned_data <- readRDS(here("data/cleaned_data.rds"))
 ```{r, eval=TRUE}
 #| label: tbl-normality-testing
 #| tbl-cap: Shapiro-Wilk Tests for Numerical Variables
-#| tbl-colwidths: [80,50]
+#| tbl-colwidths: [90,50,50]
 
 # Normality Testing for numerical variables
 
@@ -92,9 +86,8 @@ gt_table <- normality_data %>%
     table.width = pct(80)
   ) %>%
   tab_style(
-    style = cell_text(weight = "bold"),
+    style = cell_text(weight = "bold", align = "justify"),
     locations = cells_title(groups = "title")
-#    cell_text(align = "center")
   )
 
 # Display the gt table
@@ -135,9 +128,14 @@ create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
     
   # Convert gtsummary table to gt table
   gt_table <- as_gt(summary_table)%>%
-    cols_width(
-      everything() ~ px(150)  # Adjust column width as needed
-    )
+    tab_options(
+      table.width = pct(95),
+      table.layout = "auto"
+      )#%>%
+    #cols_width(
+    #  vars(variable) ~ px(200),
+    #  everything() ~ px(90)  # Adjust column width as needed
+    #)
 
   # Return the gt table
   return(gt_table)
@@ -152,6 +150,7 @@ cleaned_data <- cleaned_data %>%
 #| label: tbl-descriptive-demo
 #| tbl-cap: Descriptive Statistics of Participants' Demographic Characteristics
 
+
 # Select different sets of variables for different tables
 demographics_vars <- c(
   "gender", "age", "marital_status",
@@ -163,7 +162,8 @@ demographics_vars <- c(
 gt_table <- create_summary_table(cleaned_data, "participant_status", demographics_vars, labels, "Demographic")
 
 # Render the table in the Quarto document
-gt_table 
+gt_table
+
 ```
 
 ```{r, eval=TRUE}
@@ -306,7 +306,8 @@ socio_economic_vars <- c(
 gt_table <- create_summary_table(cleaned_data, "participant_status", socio_economic_vars, labels, "Socio-economic")
 
 
-gt_table
+gt_table  %>%
+  gt_theme_guardian()
 ```
 
 ## Social Cohesion among IDPs and Host Communities
@@ -329,7 +330,7 @@ The survey assessed the social integration and participation of internally displ
 
 ### Shared Values and Goals Between IDPs and Host Community
 
-@tbl-shared-values-desc describes the *levels of shared values and goals between host community members and internally displaced persons (*IDPs*), highlighting* cultural Alignment, Mutual Respect, Collaboration, and Shared Responsibility
+@tbl-shared-values-desc describes the levels of shared values and goals between host community members and internally displaced persons (IDPs), highlighting cultural Alignment, Mutual Respect, Collaboration, and Shared Responsibility
 
 **Shared Cultural Values**: Of 406 respondents, 12% reported never sharing cultural values, 52% sometimes shared values, and 36% always did. There was no significant difference between host community members and IDPs *(p = .4).*
 
@@ -368,7 +369,7 @@ gt_table <- cleaned_data %>%
 
 
 
-gt_table
+gt_table 
 
 ```
 
@@ -380,7 +381,7 @@ gt_table
 shared_values_vars <- c(
   "shared_cultural_values", "mutual_respect", "work_together",
   "shared_responsibility", "shared_values_category"
-  )
+  ) 
 
 # Call the function and store the table
 gt_table <- create_summary_table(cleaned_data, 
@@ -390,8 +391,7 @@ gt_table <- create_summary_table(cleaned_data,
                                  "Shared Values & Goals"
                                  )
 
-gt_table %>%
-  gt_theme_538()  # Example of applying a theme from gtExtra
+gt_table 
 
 
 ```
@@ -436,8 +436,7 @@ social_support_vars <- c(
 # Call the function and store the table
 gt_table <- create_summary_table(cleaned_data, "participant_status", social_support_vars, labels, "Perceived Equity and Justice")
 
-gt_table %>%
-  gt_theme_538()  # Example of applying a theme from gtExtra
+gt_table 
 ```
 
 ```{r, eval=TRUE}
@@ -1043,7 +1042,7 @@ gt_table %>%
 ```
 
 | Attribute                             | Social Cohesion (p-value) | Resilience (p-value) |
-|------------------------------|:---------------------:|:-----------------:|
+|-------------------------------|:--------------------:|:-----------------:|
 | **Health Status**                     |            0.3            |     **\< 0.001**     |
 | **Physical Health Status**            |           0.10            |     **\< 0.001**     |
 | **Relationships with Family**         |           0.12            |      **0.004**       |
