@@ -86,7 +86,7 @@ gt_table <- normality_data %>%
     table.width = pct(80)
   ) %>%
   tab_style(
-    style = cell_text(weight = "bold", align = "justify"),
+    style = cell_text(weight = "bold", align = "center"),
     locations = cells_title(groups = "title")
   )
 
@@ -131,11 +131,12 @@ create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
     tab_options(
       table.width = pct(95),
       table.layout = "auto"
-      )#%>%
-    #cols_width(
-    #  vars(variable) ~ px(200),
-    #  everything() ~ px(90)  # Adjust column width as needed
-    #)
+      )%>%
+    cols_width(
+      vars(variable) ~ px(200),
+      everything() ~ px(90)  # Adjust column width as needed
+      )  %>%
+    gt_theme_espn()
 
   # Return the gt table
   return(gt_table)
@@ -210,7 +211,16 @@ create_summary_table <- function(data, by_var, vars, labels, caption_prefix) {
     modify_caption(caption) # Add caption to the table
     
   # Convert gtsummary table to gt table
-  gt_table <- as_gt(summary_table)
+  gt_table <- as_gt(summary_table)%>%
+    tab_options(
+      table.width = pct(95),
+      table.layout = "auto"
+      )%>%
+    cols_width(
+      vars(variable) ~ px(200),
+      everything() ~ px(90)  # Adjust column width as needed
+      )  %>%
+    gt_theme_espn()
 
   # Return the gt table
   return(gt_table)
@@ -364,8 +374,8 @@ gt_table <- cleaned_data %>%
     ) %>%
   add_n()%>%
   modify_header(label ~ "**Variable**") %>% # Modify the header for variable names
-    bold_labels() %>%
-    modify_caption("**Social Integration and Participation of IDPs Towards Host Community**") # Add caption to the table
+    bold_labels() # %>%
+  #  modify_caption("**Social Integration and Participation of IDPs Towards Host Community**") # Add caption to the table
 
 
 
@@ -600,7 +610,16 @@ create_summary_table1 <- function(data, by_var, vars, labels, caption_prefix) {
     modify_caption(caption) # Add caption to the table
     
   # Convert gtsummary table to gt table
-  gt_table <- as_gt(summary_table)
+  gt_table <- as_gt(summary_table)%>%
+    tab_options(
+      table.width = pct(95),
+      table.layout = "auto"
+      )%>%
+    cols_width(
+      vars(variable) ~ px(200),
+      everything() ~ px(90)  # Adjust column width as needed
+      )  %>%
+    gt_theme_espn()
 
   # Return the gt table
   return(gt_table)
@@ -1050,7 +1069,7 @@ gt_table %>%
 | **Worry about Global Events**         |         **0.079**         |     **\< 0.001**     |
 | **Optimism about the Next 12 Months** |         **0.047**         |     **\< 0.001**     |
 
-: **P_values for Associations Between Well-Being Attributes and Perceived Levels of Social Cohesion and Resilience** {#\| tbl-health-cohesion-resilience}
+: P_values for Associations Between Well-Being Attributes and Perceived Levels of Social Cohesion and Resilience {#\| tbl-health-cohesion-resilience}
 
 ### Associations Between Wellbeing Attributes with Levels of Resilience
 
