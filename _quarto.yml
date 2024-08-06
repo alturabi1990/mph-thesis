@@ -1,44 +1,104 @@
 project:
   output-dir: ./docs
+  # Specifies the directory where the output files (HTML, PDF, etc.) will be saved.
+
   type: book
+  # Defines the project type as a "book," which allows for multi-chapter output formats.
 
 book:
   title: "Social Cohesion and Resilience Between IDPs and Host Communities During Armed Conflict and Wellbeing in River Nile State, Sudan 2024"
+  # The title of the book or thesis.
+
   author:
      - name: "Principal Investigator: Elhami A.A. Ahmed. MBBS, MoSoc"
+       # The name and credentials of the first author (Principal Investigator).
+
        orcid: 0000-0002-0386-0845
+       # ORCID identifier for the first author, used for academic attribution.
+
        email: alturabi1990@gmail.com
+       # The email address of the first author (usually the corresponding author).
+
        affiliations:
          - name: International University of Africa- Sudan
+         # The first affiliation for the first author.
+
          - name: Community Medicine Department, Faculty of Dentistry, Shendi University, Sudan
+         # The second affiliation for the first author.
+
        corresponding: true
+       # Indicates that this author is the corresponding author for the publication.
+
      - name: "Surpervisor: Dr. Murwan Osman, MBBS, MSc, MD"
+       # The name and credentials of the second author (Supervisor).
+
        affiliations:
          - name: International University of Africa- Sudan
+         # The affiliation for the second author.
+
   chapters:
     - text: "Front matter"
       file: index.qmd
+      # Specifies that the file `index.qmd` contains the front matter (introduction, acknowledgments, etc.) of the book.
+
     - "01-introduction.qmd"
+    # Specifies the first chapter file, which is likely named `01-introduction.qmd`.
+
     - "02-literature-review.qmd"
+    # Specifies the second chapter file, which is likely named `02-literature-review.qmd`.
+
     - "03-methods.qmd"
+    # Specifies the third chapter file, which is likely named `03-methods.qmd`.
+
     - "04-reproducibility.qmd"
+    # Specifies the fourth chapter file, which is likely named `04-reproducibility.qmd`.
+
     - "05-results.qmd"
+    # Specifies the fifth chapter file, which is likely named `05-results.qmd`.
+
     - "06-discussion.qmd"
+    # Specifies the sixth chapter file, which is likely named `06-discussion.qmd`.
+
     - "07-conclusion.qmd"
+    # Specifies the seventh chapter file, which is likely named `07-conclusion.qmd`.
+
     - "appendices.qmd"
+    # Specifies the appendices file, likely named `appendices.qmd`.
+
     - "refs.qmd"
+    # Specifies the references or bibliography file, likely named `refs.qmd`.
+
   sidebar:
-    style: "docked"
+    style: "docked" # "floating", "hidden", or "none"
+    # Configures the sidebar style in the HTML output; "docked" means the sidebar will be fixed on the side.
 
 bibliography: references.bib
+# Specifies the file `references.bib` as the source for bibliographic references.
+
 link-bibliography: true
+# Enables linking to the bibliography section from citations within the text.
+
 link-citations: true
+# Enables linking from in-text citations to the corresponding bibliography entries.
+
 csl: apa.csl
+# Specifies the citation style to be used (APA in this case), using the `apa.csl` file.
+
 degreetype: Master of Public Health "MPH"
+# Indicates the type of degree (Master of Public Health) associated with the thesis.
+
 submitted: 2024
+# Indicates the year of submission for the thesis.
+
 affiliation: Faculty of Medicine
+# Specifies the affiliated faculty or department (Faculty of Medicine).
+
 degrees: 'MPH, International University of Africa (IUA)'
+# Lists the degrees obtained by the author, along with the institution (IUA).
 
 format:
   monashthesis-html: default
+  # Specifies the format settings for HTML output, using the default configuration for "monashthesis-html".
+
   monashthesis-pdf: default
+  # Specifies the format settings for PDF output, using the default configuration for "monashthesis-pdf".
