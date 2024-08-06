@@ -2,9 +2,13 @@
 #format: docx
 ---
 
+-----------------
+
 ::: {.content-visible when-format="html"}
 A thesis submitted for the degree of {{< meta degreetype >}} at International University of Africa (IUA), {{< meta affiliation>}}
 :::
+
+-----------------------------
 
 # Abstract {.unnumbered}
 
