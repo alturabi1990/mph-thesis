@@ -2,15 +2,28 @@
 \pagenumbering{roman}
 {\sf\thispagestyle{empty}%
   \null\vskip-.4cm%
-  \centerline{\includegraphics[width=15cm]{iua-logo}}
-  \vspace*{2cm}
+\begin{center}
+    \begin{minipage}{0.45\textwidth}
+      \flushleft
+      \includegraphics[width=2.5cm]{fom-iua-logo} % Replace with the path to your left logo
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+      \flushright
+      \includegraphics[width=7cm]{iua-logo} % Replace with the path to your right logo
+    \end{minipage}
+  \end{center}
+  \vspace*{1cm}
   \begin{center}\fontsize{24}{28}\sf
      \textbf{$title$}\\[2cm]
      \fontsize{18}{20}\sf
      Principal Investigator: Elhami A.A. Ahmed, MBBS, MoSoc\\
      \fontsize{14}{16}\sf  % Smaller font size for affiliations
      Affiliations: International University of Africa, Sudan\\
-     Faculty of Dentistry, Shendi University, Sudan \\[3\baselineskip]
+     Faculty of Dentistry, Shendi University, Sudan \\[0.5cm]
+     % ORCID and email information
+     \fontsize{14}{16}\sf
+    \href{https://orcid.org/0000-0002-0386-0845}{ORCID: 0000-0002-0386-0845}\\
+     \href{mailto:alturabi1990@gmail.com}{Email: alturabi1990@gmail.com} \\[2\baselineskip]  % Adjust space between ORCID/email and the supervisor section
 
      \fontsize{18}{20}\sf
      Supervisor: Dr. Murwan Osman, MBBS, MSc, MD\\
