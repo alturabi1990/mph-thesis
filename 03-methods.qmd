@@ -24,6 +24,10 @@ This study included River Nile state that is 2nd most affected state by the disp
 
 We targeted different types of shelters as well as households to reach for IDPs and members of host communities.
 
+## Study Duration
+
+The study has been conducted from April 2024 to August 2024.
+
 ## Study populations
 
 The study included both adults above or equal 18 yearsd from IDPs & host communities as follows:
@@ -71,15 +75,15 @@ We divided the sample size between the IDPs & host community members.
 
    **We adopted a multistage cluster sampling technique to select participants from both the IDP and host communities.**
 
-1.  Firstly, for the state, we have 6 selected localities to represent different characteristics (distance from origin, clashes, & center of the state) 
+1.  Firstly, for the state level, we have intentionally selected 6 localities to represent different characteristics (distance from origin, clashes, & center of the state). Elbuhairah and Barbar localities were not included or weakly represented as they has least number of IDPs hosted.  
 
 2.  At the locality level, we conveniently selected the major city (urban, Atbara) and at least one village (rural).
 
-3.  Thirdly, participants were selected from different settings to guarantee taking diverse areas (households, health facilities, market, housing centres)
+3.  Thirdly, participants were selected from different settings to guarantee taking diverse areas (households, health facilities, market, housing centres) and also to keep the privacy of the participants when speaking freely about their neighbours.
 
 ## Study variables
 
-***The study had measured various variables related to:***
+**The study had measured various variables related to:**
 
 **Social cohesion in IDPs communities’ variables**
 
@@ -167,31 +171,3 @@ Ethical approval was obtained from both the International University of Africa a
 Permissions from related gatekeepers (the household members, any community bodies if necessary as well as the official persons in case of IDP community settings) were obtained @sec-annex2
 
 Informed consent was obtained from all participants prior to their involvement in the study. This research adhered to ethical guidelines regarding confidentiality, privacy protection, and anonymity of participants’ responses by assigning unique identification codes to each questionnaire @sec-annex3 .
-
-## Timeline
-
-A tentative timeline for the various stages of your research, including data collection, analysis, and report writing. This timeline should cover the duration of your project.
-
-```{mermaid}
-%%| label: fig-mermaid-gantt
-%%| fig-cap: Gantt's Chart for the Project Timeline in 2024
-%%{init: {'theme': 'default', 'themeVariables': {'textColo': '#798189'}}}%%
-
-gantt
-    title Research Project Timeline
-    dateFormat YYYY-MM
-    axisFormat %d-%b
-    
-    section Preparation phase
-    Research protocol: a1, 2024-05-01, 14d
-    Ethical approval/Gatekeepers' permissions : crit, a2, after a1, 14d
-    Data Collectors Training: after a2, 3d
-    
-    section Implementation phase
-    Data collection : 2024-05-29, 7d
-    Data entry & analysis: crit, 2024-06-15, 7d
-    
-    section Dissimination phase
-     Writing the report: crit, 2024-07-01, 14d
-     Thesis Defence: 2024-07-15, 2024-08-05
-```
